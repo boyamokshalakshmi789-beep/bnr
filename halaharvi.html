@@ -5,21 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>జగ్గాపురం గ్రామం</title>
   <style>
-    body {
+    body {      
       font-family: "Noto Sans Telugu", sans-serif;
       background: #fff8e1;
       margin: 0;
       padding: 0;
     }
 
-     header {
+    /* header*/
+    header {
+ 
+    width: 100%;
     background: linear-gradient(90deg, #ffcc80, #ffb74d);
     padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    animation: h1 10s ease-in infinite;
   }
+  @keyframes h1 {
+from 0% {color: #555;}
+50% {color:  white;}
+100%{color: #555;}
+}
   .leaders {
     display: flex;
     gap: 15px;
@@ -27,14 +36,30 @@
     align-items: center;
   }
 
-  header img {
-    height: 150px;
-    border-radius: 10px;
-  }
-
   .leaders img {
-    height: 85px;
-    width: 85px;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 10px #555;
+    object-fit: cover;
+    animation: img 2s ease infinite;
+  }
+  @keyframes img{
+0%{border: 4px solid #fff;}
+30%{border: 4px solid red;}
+60%{border: 4px solid greenyellow;}
+100%{border: 4px solid #fff;}}
+
+  .leaders {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+  .leaders img {
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
     border: 4px solid #fff;
     box-shadow: 0 0 10px #555;
@@ -139,6 +164,7 @@ border-right: 6px solid #2e7d32;
     .container, h2{text-align: center;}
     p{font-size: large;}
      /*footer*/
+    
      footer {
     background: linear-gradient(45deg, #222, #444);
     color: #fff;
@@ -179,7 +205,6 @@ border-right: 6px solid #2e7d32;
 
   .footer-section2 a:hover {
     color: #ffcc00;
-    
   }
 
   .footer-bottom {
@@ -200,6 +225,7 @@ border-right: 6px solid #2e7d32;
 <body>
 
   <header>
+    
   <img src="partysymbol.png" alt="పార్టీ లోగో">
   <h1>జై తెలుగుదేశం </h1>
   <div class="leaders">
@@ -212,8 +238,8 @@ border-right: 6px solid #2e7d32;
   <img src="cycle.jpg" alt="సైకిల్ లోగో">
 </header>
 
-  <div class="container">
-  <h2>హాలహర్వి గ్రామం వివరాలు</h2>
+ <div class="container">
+  <h2>హాలహర్వి గ్రామంలో తెలుగుదేశం పాలనలో జరిగిన అభివృద్ధి కార్యక్రమాల వివరాలు</h2>
 
   <div class="content-box">
     
@@ -270,42 +296,42 @@ border-right: 6px solid #2e7d32;
     </p>
     </div>
     </div>
-    <h2>హాలహర్వి గ్రామం అభివృద్ధి ప్రాజెక్టులు</h2>
-  <h2>ఫోటో గ్యాలరీ</h2>
+    <h2>హాలహర్వి గ్రామం అభివృద్ధి కార్యక్రమాల ఫోటో గ్యాలరీ </h2>
+  
   <div class="gallery">
     <img src="desaicheruvuthoom.jpg" alt="జగ్గాపురం ఫోటో 1">
     <img src="bvcolony.jpg" alt="జగ్గాపురం ఫోటో 2">
     <img src="cheruvukaluva.jpg" alt="జగ్గాపురం ఫోటో 3">
   </div>
-
-  
 </div>
+
 <footer>
-    <div class="footer-container">
-      <div class="footer-section">
-        <h3>మా గురించి</h3>
-        <p>ఇది మా గ్రామ కుటుంబ బుక్లెట్ వెబ్‌సైట్. గ్రామ చరిత్ర, వ్యక్తులు, ఫోటోలు — అన్నీ ఒకచోట.</p>
-      </div>
-
-      <div class="footer-section">
-        <h3>ఉపయోగకరమైన లింకులు</h3>
-        <a href="#">మొదటి పేజీ</a>
-        <a href="#">సంప్రదించండి</a>
-        <a href="#">ఫోటో గ్యాలరీ</a>
-      </div>
-
-      <div class="footer-section">
-        <h3>మమ్మల్ని సంప్రదించండి</h3>
-        <p>📍 నందవరం, కర్నూలు జిల్లా</p>
-        <p>📞 98765 43210</p>
-        <p>✉️ info@example.com</p>
-      </div>
+    <footer>
+  <div class="footer-container">
+    <div class="footer-section1">
+      <h3>మా గురించి</h3>
+      <p>ఇది మా గ్రామ తెలుగుదేశం పార్టి కుటుంబ వెబ్‌సైట్. గ్రామ చరిత్ర, వ్యక్తులు, ఫోటోలు — అన్నీ ఒకచోట.</p>
     </div>
 
-    <div class="footer-bottom">
-      © 2025 కుటుంబ బుక్లెట్ | Designed by Boya Nagaraju
+    <div class="footer-section2">
+      <h3>ఉపయోగకరమైన లింకులు</h3>
+      <a href="#">మొదటి పేజీ</a>
+      <a href="#">సంప్రదించండి</a>
+      <a href="#">ఫోటో గ్యాలరీ</a>
     </div>
-  </footer>
+
+    <div class="footer-section3">
+      <h3>మమ్మల్ని సంప్రదించండి</h3>
+      <p>📍 బోయ నాగరాజు, హాలహర్వి గ్రామం, నందవరం, కర్నూలు జిల్లా</p>
+      <p>📞 81421 93789</p>
+      <p>✉️ info@example.com</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    ఎమ్మిగనూరు తెలుగుదేశం పార్టి కుటుంబ బుక్లెట్ | Designed by <b>Boya Nagaraju</b>
+  </div>
+</footer>
 <script>
 document.querySelectorAll('.gallery img').forEach(img => {
   img.addEventListener('click', () => {
