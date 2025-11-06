@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>బోయ నాగరాజు కుటుంబ బుక్లెట్</title>
+<style>
+  body {
+    margin: 0;
+    background: radial-gradient(circle at center, #fefae0, #e9edc9);
+    font-family: 'Noto Sans Telugu', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* 🔶 HEADER SECTION */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffeb3b;
+    padding: 10px 40px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  }
+
+  .logo .symbol {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .logo img, .symbol img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .leaders {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .leaders img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .leaders img:hover {
+    transform: scale(1.08);
+  }
+  
+  /* 📖 BOOKLET STYLES */
+  .book {
+    position: relative;
+    width: 90vw;
+    max-width: 1200px;
+    height: 70vh;
+    margin: 30px auto;
+    background: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.25);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 1s ease, transform 1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    box-sizing: border-box;
+  }
+
+  .page.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 10;
+  }
+
+  .photo {
+    flex: 1;
+    max-width: 45%;
+    height: 90%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .info {
+    flex: 1;
+    max-width: 50%;
+    padding-left: 30px;
+  }
+
+  .info h2 {
+    color: #4a148c;
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  .info h1{ font-size: 20px;
+color: #333;}
+
+  .info p {
+    font-size: 20px;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .controls {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    box-sizing: border-box;
+    z-index: 999;
+  }
+
+  button {
+    background: #5a189a;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+    transition: all 0.3s;
+  }
+
+  button:hover {
+    background: #9d4edd;
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 700px) {
+    .page {
+      flex-direction: column;
+      text-align: center;
+    }
+    .photo, .info {
+      max-width: 100%;
+    }
+    .info {
+      padding: 15px 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- 🔷 Header Section -->
+<header>
+  <div class="logo">
+    <img src="partysymbol.jpg" alt="జై తెలుగుదేశం">
+    </div>
+    <h1>జై తెలుగుదేశం</h1>
+  <div class="leaders">
+    <img src="BVM3.jpg" alt="Leader 1">
+    <img src="cbn.jpg" alt="Leader 1">
+    <img src="lokesh.jpg" alt="Leader 2">
+    <img src="bvj1.jpg" alt="Leader 3">
+  </div>
+  <h1>జై జై తెలుగుదేశం</h1>
+  <div class="symbol">
+    <img src="cycle.jpg" alt="Party Symbol">
+      </div>
+      </header>
+
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 📄 Page Flip Sound -->
+<audio id="flipSound">
+  <source src="flip.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 📘 Booklet -->
+ 
+<div class="book" id="book">
+  <!-- Cover Page -->
+  <div class="page active">
+    <div class="photo"><img src="coverpage.jpg" alt="Cover"></div>
+    <div class="info">
+      <h2>బోయ నాగరాజు హాలహర్వి గ్రామం</h2>
+      <p>ఇది హాలహర్వి గ్రామంలో జరిగిన అభివృద్ధి పనుల గురించి ఈ పుస్తకంలో వివరించడం జరిగింది చేసిన పనికి సంబంధించిన ఫోటోతో పాటు ఆ పనికి చేసిన ఖర్చును వివరించడం జరిగింది.</p>
+    </div>
+  </div>
+
+  <!-- Example Pages -->
+  <div class="page">
+    <div class="photo"><img src="page1.jpg" alt="Person 1"></div>
+    <div class="info">
+      <h2>బోయ సోమప్ప</h2>
+      <p>తండ్రి గారు – కుటుంబ పెద్ద. గ్రామం: హాలహర్వి, నందవరం మండలం.</p>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="photo"><img src="bvj2.jpg" alt="Person 2"></div>
+    <div class="info">
+      <h2>బోయ నాగరాజు</h2>
+      <p>ఎం.కాం గ్రాడ్యుయేట్. కుటుంబానికి ఆధునిక బుక్లెట్ రూపొందించిన వ్యక్తి.</p>
+    </div>
+  </div>
+  <div class="page">
+    <div class="photo"><img src="bvj1.jpg" alt="Person 2"></div>
+    <div class="info">
+      <h2>బోయ నాగరాజు</h2>
+      <p>ఎం.కాం గ్రాడ్యుయేట్. కుటుంబానికి ఆధునిక బుక్లెట్ రూపొందించిన వ్యక్తి.</p>
+    </div>
+  </div>
+  <div class="page">
+    <div class="photo"><img src="cbn.jpg" alt="Person 2"></div>
+    <div class="info">
+      <h2>బోయ నాగరాజు</h2>
+      <p>ఎం.కాం గ్రాడ్యుయేట్. కుటుంబానికి ఆధునిక బుక్లెట్ రూపొందించిన వ్యక్తి.</p>
+    </div>
+  </div>
+  <div class="page">
+    <div class="photo"><img src="page7.jpg" alt="Person 2"></div>
+    <div class="info">
+      <h2>బోయ నాగరాజు</h2>
+      <p>ఎం.కాం గ్రాడ్యుయేట్. కుటుంబానికి ఆధునిక బుక్లెట్ రూపొందించిన వ్యక్తి.</p>
+    </div>
+  </div>
+  <div class="page">
+    <div class="photo"><img src="page5.jpg" alt="Person 2"></div>
+    <div class="info">
+      <h2>బోయ నాగరాజు</h2>
+      <p>ఎం.కాం గ్రాడ్యుయేట్. కుటుంబానికి ఆధునిక బుక్లెట్ రూపొందించిన వ్యక్తి.</p>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="photo"><img src="endpage.jpg" alt="End Page"></div>
+    <div class="info">
+      <h2>ధన్యవాదాలు 🙏</h2>
+      <p>ఈ కుటుంబ బుక్లెట్‌ను చూసినందుకు ధన్యవాదాలు.</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="controls">
+  <button onclick="prevPage()">⬅ వెనక్కి</button>
+  <button onclick="nextPage()">➡ ముందుకు</button>
+</div>
+
+<script>
+  const pages = document.querySelectorAll('.page');
+  const flipSound = document.getElementById('flipSound');
+  const bgMusic = document.getElementById('bgMusic');
+  let current = 0;
+
+  function playFlip() {
+    flipSound.currentTime = 0;
+    flipSound.play();
+  }
+
+  function showPage(index) {
+    pages.forEach((p, i) => {
+      p.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextPage() {
+    if (current < pages.length - 1) {
+      playFlip();
+      current++;
+      showPage(current);
+    }
+  }
+
+  function prevPage() {
+    if (current > 0) {
+      playFlip();
+      current--;
+      showPage(current);
+    }
+  }
+
+  document.addEventListener('click', () => {
+    if (bgMusic.paused) bgMusic.play();
+  });
+</script>
+
+</body>
+</html>
