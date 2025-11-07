@@ -29,9 +29,9 @@
     animation: h1 10s ease-in infinite;
   }
   @keyframes h1 {
-from 0% {color: #555;}
-50% {color:  white;}
-100%{color: #555;}
+  0% {color: #555;}
+  50% {color: white;}
+  100% {color: #555;}
 }
   .leaders {
     display: flex;
@@ -110,7 +110,7 @@ from 0% {color: #555;}
     }
 
     .gallery img:hover {
-      transform: scale(1.50);
+      transform: scale(1.1);
     }
 
         
@@ -197,7 +197,8 @@ border-right: 6px solid #2e7d32;
     background: #111;
     padding: 10px;
     border-top: 1px solid #555;
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.4;
   }
 
   @media (max-width: 600px) {
@@ -205,6 +206,37 @@ border-right: 6px solid #2e7d32;
       flex-direction: column;
       text-align: center;
     }}
+    /*audio*/
+
+  .audio-controls {
+    display: inline-flex;
+    gap: 20px;
+    align-items: center;
+    background: linear-gradient(45deg, #fbc02d, #ffeb3b);
+    padding: 15px 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  button {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #43a047;
+    transform: scale(1.05);
+  }
+
+  h2 {
+    color: #444;
+  }
   </style>
 </head>
 <body>
@@ -258,9 +290,17 @@ border-right: 6px solid #2e7d32;
     <img src="cheruvukaluva.jpg" alt="జగ్గాపురం ఫోటో 3">
   </div>
 </div>
+<div class="audio-controls">
+  <button id="playBtn">▶️ ప్లే</button>
+  <button id="pauseBtn">⏸️ ఆపు</button>
+</div>
+
+<audio id="villageAudio" loop>
+  <source src="tdp1.mp3" type="audio/mpeg">
+  మీ బ్రౌజర్ ఆడియో ప్లే చేయడం సపోర్ట్ చేయదు.
+</audio>
 
 <footer>
-    <footer>
   <div class="footer-container">
     <div class="footer-section1">
       <h3>మా గురించి</h3>
@@ -286,6 +326,7 @@ border-right: 6px solid #2e7d32;
     ఎమ్మిగనూరు తెలుగుదేశం పార్టి కుటుంబ బుక్లెట్ | Designed by <b>Boya Nagaraju</b>
   </div>
 </footer>
+
 <script>
 document.querySelectorAll('.gallery img').forEach(img => {
   img.addEventListener('click', () => {
@@ -304,8 +345,29 @@ document.querySelectorAll('.gallery img').forEach(img => {
     document.body.appendChild(overlay);
   });
 });
-</script>
 
+</script>
+<script>
+  const audio = document.getElementById('villageAudio');
+  const playBtn = document.getElementById('playBtn');
+  const pauseBtn = document.getElementById('pauseBtn');
+
+  // ఆటో ప్లే ప్రయత్నం (కొన్ని మొబైల్ బ్రౌజర్లలో అనుమతి అవసరం)
+  window.addEventListener('load', () => {
+    audio.volume = 0.6;
+    audio.play().catch(() => {
+      console.log("User interaction needed to start audio.");
+    });
+  });
+
+  playBtn.addEventListener('click', () => {
+    audio.play();
+  });
+
+  pauseBtn.addEventListener('click', () => {
+    audio.pause();
+  });
+</script>
 
 </body>
 </html>
