@@ -52,11 +52,12 @@ from 0% {color: #555;}
     object-fit: cover;
     animation: img 2s ease infinite;
   }
-  @keyframes img{
-0%{border: 4px solid #fff;}
-30%{border: 4px solid red;}
-60%{border: 4px solid greenyellow;}hh
-100%{border: 4px solid #fff;}}
+ @keyframes img {
+  0%{border: 4px solid #fff;}
+  30%{border: 4px solid red;}
+  60%{border: 4px solid greenyellow;}
+  100%{border: 4px solid #fff;}
+}
 
     /* Navigation bar */
     .navbar {
@@ -242,18 +243,22 @@ footer {
 <body>
     <header>
   <img src="partysymbol.png" alt="పార్టీ లోగో">
-  <h1>జై తెలుగుదేశం </h1>
+  
+    <h1>జై తెలుగుదేశం </h1>
   <div class="leaders">
+    <img src="BVM3.jpg" alt="బీవీ జయనాగేశ్వర రెడ్డి">
     <img src="cbn.jpg" alt="నారా చంద్రబాబు నాయుడు">
     <img src="lokesh.jpg" alt="నారా లోకేష్">
     <img src="bvj1.jpg" alt="బీవీ జయనాగేశ్వర రెడ్డి">
        
   </div>
-  <h1>జై జై తెలుగుదేశం </h1>
+  <h1>జై జై తెలుగుదేశం</h1>
   <img src="cycle.jpg" alt="సైకిల్ లోగో">
 </header>
 
   <nav class="navbar">
+    
+    <button id="play-btn" class="audio-play-button" aria-label="Play background audio">▶︎</button>
     <ul>
       <li>
         <a onclick="toggleDropdown('nandavaram')">నందవరం</a>
@@ -323,7 +328,7 @@ footer {
       </li>
       <li>
         <a onclick="toggleDropdown('డౌన్లోడ్స్')">డౌన్లోడ్స్</a>
-        <div id="gonegandla" class="dropdown-content">
+        <div id="downlods" class="dropdown-content">
           <a>పాటలు</a>
           <a>ఫోటోలు</a>
           <a>వీడియోలు</a>
@@ -331,6 +336,8 @@ footer {
         </div>
       </li>
     </ul>
+    <button id="mute-btn">🔊</button>
+    <button id="pause-btn">||</button>
 
     </nav>
   <!-- Content Sections -->
@@ -361,8 +368,7 @@ footer {
 <div id="img5" class="lightbox"><a href="#" class="close-btn">×</a><img src="emiganur1.jpg" alt=""></div>
 <div id="img7" class="lightbox"><a href="#" class="close-btn">×</a><img src="emiganur_town1.jpg" alt=""></div>
 <footer>
-    <footer>
-  <div class="footer-container">
+      <div class="footer-container">
     <div class="footer-section1">
       <h3>మా గురించి</h3>
       <p>ఇది మా గ్రామ కుటుంబ బుక్లెట్ వెబ్‌సైట్. గ్రామ చరిత్ర, వ్యక్తులు, ఫోటోలు — అన్నీ ఒకచోట.</p>
@@ -385,16 +391,17 @@ footer {
 
   <div class="footer-bottom">
     © 2025 కుటుంబ బుక్లెట్ | Designed by <b>Boya Nagaraju</b>
+
       <audio id="bg-audio" preload="auto" loop playsinline>
     <source src="tdp1.mp3" type="audio/mpeg">
     మీ బ్రౌజర్ ఆడియో ట్యాగ్ ని సపోర్ట్ చేయదు.
   </audio>
 <div id="controls" class="audio-controls" aria-hidden="true">
-    <button id="pause-btn">|| నిలుపు</button>
-    <button id="mute-btn">🔊 మ్యూట్</button>
+    
+    
   </div>
   <!-- fallback play బటన్ (మొబైల్ కోసం) -->
-  <button id="play-btn" class="audio-play-button" aria-label="Play background audio">▶︎ ప్లే ఆడియో</button>
+  
 
   </div>
 
@@ -469,16 +476,16 @@ footer {
     pauseBtn.addEventListener('click', () => {
       if (audio.paused) {
         audio.play();
-        pauseBtn.textContent = '|| నిలిపి';
+        pauseBtn.textContent = '||';
       } else {
         audio.pause();
-        pauseBtn.textContent = '▶︎ పాడు';
+        pauseBtn.textContent = '▶︎';
       }
     });
 
     muteBtn.addEventListener('click', () => {
       audio.muted = !audio.muted;
-      muteBtn.textContent = audio.muted ? '🔈 అన్‌మ్యూట్' : '🔊 మ్యూట్';
+      muteBtn.textContent = audio.muted ? '🔈' : '🔊';
     });
 
     // (ఐచ్ఛిక) పేజీ విడిచేప్పుడు ఆడియో ఆపడం
@@ -533,8 +540,8 @@ window.addEventListener('click', function(event) {
 });
 </script>
 <script>
-document.querySelectorAll('.gallery img').forEach(img => {
-  img.addEventListener('click', () => {
+    document.querySelectorAll('.content img').forEach(img => {
+    img.addEventListener('click', () => {
     const overlay = document.createElement('div');
     overlay.style.position = 'fixed';
     overlay.style.top = 0;
@@ -551,8 +558,5 @@ document.querySelectorAll('.gallery img').forEach(img => {
   });
 });
 </script>
-
-
-
 </body>
 </html>
