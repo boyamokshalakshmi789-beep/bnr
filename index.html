@@ -375,10 +375,115 @@ footer {
 
   <div class="footer-bottom">
     © 2025 కుటుంబ బుక్లెట్ | Designed by <b>Boya Nagaraju</b>
+      <audio id="bg-audio" preload="auto" loop playsinline>
+    <source src="tdp1.mp3" type="audio/mpeg">
+    మీ బ్రౌజర్ ఆడియో ట్యాగ్ ని సపోర్ట్ చేయదు.
+  </audio>
+<div id="controls" class="audio-controls" aria-hidden="true">
+    <button id="pause-btn">|| నిలుపు</button>
+    <button id="mute-btn">🔊 మ్యూట్</button>
   </div>
-</footer>
+  <!-- fallback play బటన్ (మొబైల్ కోసం) -->
+  <button id="play-btn" class="audio-play-button" aria-label="Play background audio">▶︎ ప్లే ఆడియో</button>
 
-  <script>
+  </div>
+
+</footer>
+<script>
+  (function(){
+    const audio = document.getElementById('bg-audio');
+    const playBtn = document.getElementById('play-btn');
+    const controls = document.getElementById('controls');
+    const pauseBtn = document.getElementById('pause-btn');
+    const muteBtn = document.getElementById('mute-btn');
+
+    // ప్రాథమిక కొంత సెటప్
+    audio.volume = 0.8; // అవసరమైతే సర్దుకోండి (0.0 - 1.0)
+
+    // పేజీ లోడ్ అయ్యగానే ప్లే చేయడానికి ప్రయత్నించు
+    window.addEventListener('DOMContentLoaded', () => {
+      // ప్రయత్నం
+      const p = audio.play();
+      if (p !== undefined) {
+        p.then(() => {
+          // ప్లే అయిపోయింది — UI controls చూపించొచ్చు
+          controls.style.display = 'block';
+          controls.setAttribute('aria-hidden','false');
+        }).catch((err) => {
+          // బ్రౌజర్ autoplay బ్లాక్ చేసింది -> యూజర్ ఇంటరాక్షన్ కోరాలి
+          console.log('Autoplay blocked:', err);
+          showPlayButton();
+          // optional: అటైన సందర్భంలో ఒక టచ్/క్లిక్ వచ్చిన వెంటనే ప్లే ట్రై చేయడం
+          // add a one-time listener to try again on first user gesture
+          const one = () => {
+            audio.play().then(() => {
+              hidePlayButton();
+              controls.style.display = 'block';
+              controls.setAttribute('aria-hidden','false');
+            }).catch(()=> {
+              // ఇంకా బ్లాక్ అయితే tetap show button
+              showPlayButton();
+            });
+            document.removeEventListener('click', one);
+            document.removeEventListener('touchstart', one);
+          };
+          document.addEventListener('click', one, {once: true});
+          document.addEventListener('touchstart', one, {once: true});
+        });
+      } else {
+        // Promise undefined (బిజారక) — ఫాల్బ్యాక్
+        showPlayButton();
+      }
+    });
+
+    function showPlayButton() {
+      playBtn.classList.add('show');
+    }
+    function hidePlayButton() {
+      playBtn.classList.remove('show');
+    }
+
+    // యూజర్ బటన్ తో ప్లే
+    playBtn.addEventListener('click', async () => {
+      try {
+        await audio.play();
+        hidePlayButton();
+        controls.style.display = 'block';
+        controls.setAttribute('aria-hidden','false');
+      } catch (e) {
+        console.warn('Play failed even after user click:', e);
+      }
+    });
+
+    // pause / mute controls
+    pauseBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        pauseBtn.textContent = '|| నిలిపి';
+      } else {
+        audio.pause();
+        pauseBtn.textContent = '▶︎ పాడు';
+      }
+    });
+
+    muteBtn.addEventListener('click', () => {
+      audio.muted = !audio.muted;
+      muteBtn.textContent = audio.muted ? '🔈 అన్‌మ్యూట్' : '🔊 మ్యూట్';
+    });
+
+    // (ఐచ్ఛిక) పేజీ విడిచేప్పుడు ఆడియో ఆపడం
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        // backgroundలో గానీ, మీరు ఇష్టమైతే pause చేయవచ్చు
+        // audio.pause();
+      } else {
+        // తిరిగి వచ్చినప్పుడు ఆటోప్లే ప్రయత్నాలుంటే...
+      }
+    });
+
+  })();
+</script>
+ <script>
 function toggleDropdown(id) {
   // అన్ని డ్రాప్‌డౌన్‌లను మూసేయండి
   document.querySelectorAll('.dropdown-content').forEach(drop => {
