@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>కుటుంబ బుక్లెట్ - నావిగేషన్ డ్రాప్‌డౌన్</title>
+  <title>ఎమ్మిగనూరు తెలుగుదేశం పార్టి </title>
   <style>
     body {
       font-family: "Noto Sans Telugu", sans-serif;
@@ -11,12 +11,15 @@
       background: lightyellow;
       animation: body 10s ease-in-out infinite;
     }
-    @keyframes body{0%{background: lightyellow;}
+    @keyframes body{
+  0%{background: lightyellow;}
   25%{background: lightblue;}
   50%{background: lightblue;}
   75%{background: #b5e6ad;}
-100%{background: lightyellow;}}
+  100%{background: lightyellow;}}
+
     /*header*/
+
     header {
     background: linear-gradient(90deg, #ffcc80, #ffb74d);
     padding: 10px 20px;
@@ -27,7 +30,7 @@
     animation: h1 10s ease-in infinite;
   }
   @keyframes h1 {
-from 0% {color: #555;}
+ 0% {color: #555;}
 50% {color:  white;}
 100%{color: #555;}
 }
@@ -134,20 +137,18 @@ from 0% {color: #555;}
     max-width: 1600px;
     }
     .content img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    transition: 2s;
   }
  .content img{
-    width: 310px;
+    width: 300px;
     height: 250px;
     border-radius: 20px;
     border-left: 6px solid #2e7d32;
     border-right: 6px solid #2e7d32;
     margin: 35px;
    }
-   .content img:hover {
-      transform: scale(1.50);
-      transition: 2s;
-    }
+   
    .content h1{text-align: center;}
    /* ✅ మొబైల్ view లో ఫోటోలు, header, navbar సరిగా రావడానికి */
 @media (max-width: 768px) {
@@ -175,13 +176,9 @@ from 0% {color: #555;}
     text-align: center;
   }
 
-  .content img {
-    width: 100%;
-    height: auto;
-    margin: 10px 0;
   }
-}
 /*footer*/
+
 footer {
     background: linear-gradient(45deg, #222, #444);
     color: #fff;
