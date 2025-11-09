@@ -1,273 +1,441 @@
 <!DOCTYPE html>
 <html lang="te">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>హాలహర్వి గ్రామం</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ఇమేజ్ సమాచారం గ్యాలరీ</title>
   <style>
-   body {
-      font-family: "Noto Sans Telugu", sans-serif;
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background: lightyellow;
-      animation: body 10s ease-in-out infinite;
-    }
-    @keyframes body{
-      0% {background: lightyellow;}
-      25% {background: lightblue;}
-      50% {background: lightblue;}
-      75% {background: #b5e6ad;}
-      100% {background: lightyellow;}
+      padding: 0;
     }
 
-    header {
-      background: linear-gradient(90deg, #ffcc80, #ffb74d);
-      padding-top: 10px;
+    body {
+      font-family: "Noto Sans Telugu", sans-serif;
+      background: #f5f5f5;
+      color: #222;
+      line-height: 1.5;
+    }
+
+    /* ---------- HEADER ---------- */
+     header {
       padding-bottom: 10px;
+      padding-top: 10px;
+    background: linear-gradient(90deg, #ffcc80, #ffb74d);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    animation: h1 10s ease-in infinite;
+  }
+  @keyframes h1 {
+ 0% {color: #555;}
+50% {color:  white;}
+100%{color: #555;}
+}
+  .leaders {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header img {
+    height: 150px;
+    border-radius: 20px;
+  }
+
+  .leaders img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 10px #555;
+    object-fit: cover;
+    animation: img 2s ease infinite;
+  }
+ @keyframes img {
+  0%{border: 4px solid #fff;}
+  30%{border: 4px solid red;}
+  60%{border: 4px solid greenyellow;}
+  100%{border: 4px solid #fff;}
+}
+
+    /* ---------- NAVIGATION ---------- */
+    .navbar {
+      margin: 0;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      background-color: #c8102e;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    .leaders {
-      display: flex;
-      gap: 15px;
       justify-content: center;
       align-items: center;
-    }
-    header img {
-      height: 150px;
-      border-radius: 20px;
-    }
-    .leaders img {
-      height: 150px;
-      width: 150px;
-      border-radius: 50%;
-      border: 4px solid #fff;
-      box-shadow: 0 0 10px #555;
-      object-fit: cover;
-      animation: img 2s ease infinite;
-    }
-    @keyframes img{
-      0%{border: 4px solid #fff;}
-      30%{border: 4px solid red;}
-      60%{border: 4px solid greenyellow;}
-      100%{border: 4px solid #fff;}
-    }
+      }
 
-    @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }}
-
-    .content-box { overflow: auto; margin-top: 10px; }
-    .village-photo {
-      float: left;
-      margin: 0 20px 10px 0;
-      width: 320px;
-      height: 230px;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      object-fit: cover;
-      transition: transform 0.3s;
-    }
-    .village-photo:hover { transform: scale(1.03); }
-
-    .gallery {
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
       display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 25px;
+      gap: 40px;
     }
 
-    .gallery img {
-      width: 280px;
-      height: 200px;
-      border-radius: 12px;
-      object-fit: cover;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
+    .navbar li {
+      position: relative;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
       cursor: pointer;
+      padding: 10px 16px;
+      border-radius: 5px;
+      transition: 0.3s;
     }
 
-    .gallery img:hover { transform: scale(1.1); }
-
-    .container img{
-      width: 350px;
-      height: 250px;
-      border-radius: 20px;
-      border-left: 6px solid #2e7d32;
-      border-right: 6px solid #2e7d32;
+    .navbar a:hover {
+      background: #e52b50;
     }
 
-    .info-box {
-      width: 50%;
-      background-color: aliceblue;
-      background-size: cover;
-      background-repeat: no-repeat;
-      border-radius: 15px;
+    /* Dropdown styles */
+   .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* navbar కిందనే మొదలవుతుంది */
+  left: 0;
+  background-color: white;
+  min-width: 180px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  z-index: 10;
+  border-radius: 0 0 8px 8px;
+  margin-top: 0; /* ఈ లైన్ జోడించాలి */
+  padding: 0; /* గ్యాప్ తగ్గించడానికి */
+}
+
+
+    .dropdown-content a {
+      color: #333;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+    
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    /* ---------- GALLERY ---------- */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
       padding: 20px;
-      text-align: justify;
-      line-height: 1.6;
-      box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
-      border-left: 6px solid #2e7d32;
-      border-right: 6px solid #2e7d32;
-      margin: 20px auto;
+      max-width: 1000px;
+      margin: auto;
     }
 
-    @media (max-width: 768px) {
-      .info-box { width: 50%; margin: 10px auto; }
-    }
-
-    .container, h2 { text-align: center; }
-    p { font-size: large; }
-
-    footer {
-      background: linear-gradient(45deg, #222, #444);
-      color: #fff;
-      padding-top: 20px;
-    }
-
-    .footer-container {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
       text-align: center;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .card .label {
+      padding: 8px;
+      font-weight: 600;
+    }
+
+    /* ---------- MODAL ---------- */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1000;
       padding: 20px;
     }
 
-    .footer-container div {
-      flex: 1;
-      min-width: 250px;
-      margin: 10px;
+    .modal {
+      max-width: 950px;
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 10px 10px 20px blue;
+      overflow: hidden;
+      display: grid;
+     /* grid-template-columns: 1fr 1fr;*/
     }
 
-    .footer-container h3 {
-      color: #ffcc00;
+    .modal img {
+      width: 50%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .m-info {
+      padding: 16px;
+    }
+
+    .m-info h2 {
+      color: #004aad;
+      margin-bottom: 8px;
+    }
+
+    .m-info p {
+      color: #444;
+      margin-right: 10px;
       margin-bottom: 10px;
     }
 
-    .footer-section2 a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-      margin: 5px 0;
-      transition: 0.3s;
-    }
-
-    .footer-section2 a:hover { color: #ffcc00; }
-
-    .footer-bottom {
-      text-align: center;
-      background: #111;
-      padding: 10px;
-      border-top: 1px solid #555;
+    .meta {
       font-size: 13px;
-      line-height: 1.4;
+      color: #777;
     }
 
-    @media (max-width: 600px) {
-      .footer-container { flex-direction: column; text-align: center; }
-    }
-
-    button {
-      background: #2e7d32;
-      color: white;
+    .close-btn {
+      position: absolute;
+      right: 18px;
+      top: 14px;
+      background: white;
       border: none;
-      padding: 5px 10px;
-      border-radius: 25px;
-      font-size: 16px;
+      font-size: 20px;
       cursor: pointer;
-      transition: 0.3s;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
 
-    button:hover {
-      background: #43a047;
-      transform: scale(1.05);
+    @media (max-width: 700px) {
+      .modal {
+        grid-template-columns: 1fr;
+      }
+      .modal img {
+        height: 220px;
+      }
     }
 
-    h2 { color: #444; }
+    /*footer*/
+
+
+    footer {
+    background: linear-gradient(45deg, #222, #444);
+    color: #fff;
+    font-family: "Noto Sans Telugu", sans-serif;
+    padding-top: 20px;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .footer-container div {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+  }
+
+  .footer-container h3 {
+    color: #ffcc00;
+    margin-bottom: 10px;
+  }
+
+  .footer-container p {
+    line-height: 1.6;
+  }
+
+  .footer-section2 a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+
+  .footer-section2 a:hover {
+    color: #ffcc00;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    background: #111;
+    padding: 10px;
+    border-top: 1px solid #555;
+    font-size: 14px;
+  }
+
+  @media (max-width: 600px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
   </style>
 </head>
-
 <body>
-
+  <!-- ---------- HEADER ---------- -->
   <header>
-    <img src="partysymbol.png" alt="పార్టీ లోగో">
-    <h1><button id="playBtn">▶️</button> జై తెలుగుదేశం</h1>
-    <div class="leaders">
-      <img src="BVM3.jpg" alt="బోయ జైనగేశ్వర రెడ్డి">
-      <img src="cbn.jpg" alt="చంద్రబాబు నాయుడు">
-      <img src="lokesh.jpg" alt="లోకేష్ నాయుడు">
-      <img src="bvj1.jpg" alt="బోయ జైనగేశ్వర రెడ్డి">
-    </div>
-    <h1>జై జై తెలుగుదేశం <button id="pauseBtn">⏸️</button></h1>
-    <img src="cycle.jpg" alt="సైకిల్ లోగో">
-  </header>
+  <img src="partysymbol.png" alt="పార్టీ లోగో">
+  
+    <h1>జై తెలుగుదేశం </h1>
+  <div class="leaders">
+    <img src="BVM3.jpg" alt="బీవీ జయనాగేశ్వర రెడ్డి">
+    <img src="cbn.jpg" alt="నారా చంద్రబాబు నాయుడు">
+    <img src="lokesh.jpg" alt="నారా లోకేష్">
+    <img src="bvj1.jpg" alt="బీవీ జయనాగేశ్వర రెడ్డి">
+       
+  </div>
+  <h1>జై జై తెలుగుదేశం</h1>
+  <img src="cycle.jpg" alt="సైకిల్ లోగో">
+</header>
 
-  <div class="container">
-    <h2>హాలహర్వి గ్రామంలో అభివృద్ధి కార్యక్రమాలు</h2>
+  <!-- ---------- NAVIGATION ---------- -->
+  <nav class="navbar">
+    
+    <button id="play-btn" class="audio-play-button" aria-label="Play background audio">▶︎</button>
+    <ul>
+      <li>
+        <a onclick="toggleDropdown('nandavaram')">నందవరం</a>
+        <div id="nandavaram" class="dropdown-content">
+          <a href="nandavaram.html" id="nandavaram">నందవరం</a>
+          <a href="machapuram.html" id="machapuram-link">మాచాపురం</a>
+          <a href="pulachintha.html" id="pulachintha-link">పులచింత</a>
+          <a href="ibrhimpuram.html" id="ibrhimpuram-link">ఇబ్రహీంపురం</a>
+          <a href="ibrhimpuramkottala.html" id="ibrhimpuramkottala-link">ఇబ్రహీంపురం కొట్టాల</a>
+          <a href="halaharvi.html" id="halaharvi-link">హాలహర్వి</a>
+          <a href="dharmapuram.html" id="dharmapuram-link">ధర్మాపురం</a>
+          <a href="hbapuram.html" id="hbapuram-link">హెచ్ బాపురం</a>
+          <a href="jaggapuram.html" id="jaggapuram-link">జగ్గాపురం</a>
+          <a href="mugathi.html" id="mugathi-link">ముగతి</a>
+          <a href="nadhikairavadi.html" id="nadhikairavadi-link">నది కైరవడి</a>
+          <a href="kothakairavadi.html" id="kothakairavadi-link">కొత్త కైరవడి</a>
+          <a href="gangavaram.html" id="gangavaram-link">గంగవరం</a>
+          <a href="chinnakothili.html" id="chinnakothili-link">చిన్నకొత్తిలి</a>
+          <a href="joharapuram.html" id="joharapuram-link">జొహరాపురం</a>
+          <a href="pedhakothili.html" id="pedhakothili-link">పెద్దకొత్తిలి</a>
+          <a href="nagaladhinne.html" id="nagaladhinne-link">నాగలదిన్నె</a>
+          <a href="gurujala.html" id="gurujala-link">గురజాల</a>
+          <a href="rayachoti.html" id="rayachoti-link">రాయచోటి</a>
+          <a href="mittasomapuram.html" id="mittasomapuram-link">మిట్టసోమాపురం</a>
+          <a href="somalaguduru.html" id="somalaguduru-link">సోమలగుడురు</a>
+          <a href="ponakaladhinne.html" id="ponakaladhinne-link">పోనకలదిన్నె</a>
+          <a href="kanakaveedu.html" id="kanakaveedu-link">కనకవీడు</a>
+          <a href="kanakaveedupeta.html" id="kanakaveedupeta-link">కనకవీడు పేట</a>
+          </div>
+      </li>
+       <li>
+        <a onclick="toggleDropdown('gonegandla')">గోనెగండ్ల</a>
+        <div id="gonegandla" class="dropdown-content">
+          <a>గోనెగండ్ల గ్రామం</a>
+          <a>మాచనపల్లి</a>
+          <a>కంచిరల్ల</a>
+          <a>రామనగర</a>
+        </div>
+      </li>
+      <li>
+        <a onclick="toggleDropdown('yemiganur')">ఎమ్మిగనూరు</a>
+        <div id="yemiganur" class="dropdown-content">
+          <a>ఎమ్మిగనూరు గ్రామం</a>
+          <a>కోనదహల్</a>
+          <a>బెలగల</a>
+          <a>హలగాల</a>
+        </div>
+      </li>
+      <li>
+        <a onclick="toggleDropdown('yemiganurTown')">ఎమ్మిగనూరు టౌన్</a>
+        <div id="yemiganurTown" class="dropdown-content">
+          <a>1వ వార్డు</a>
+          <a>2వ వార్డు</a>
+          <a>3వ వార్డు</a>
+          <a>4వ వార్డు</a>
+          <a>5వ వార్డు</a>
+        </div>
+      </li>
+       <li>
+        <a onclick="toggleDropdown('sampradhindai')">సంప్రదించండి</a>
+        <div id="sampradhindai" class="dropdown-content">
+          <a>ఫోన్ నెంబర్</a>
+          <a>ఫ్యాక్స్</a>
+          <a>వాట్సాప్ </a>
+          <a>ఫేస్బుక్</a>
+        </div>
+      </li>
+      <li>
+        <a onclick="toggleDropdown('డౌన్లోడ్స్')">డౌన్లోడ్స్</a>
+        <div id="downlods" class="dropdown-content">
+          <a>పాటలు</a>
+          <a>ఫోటోలు</a>
+          <a>వీడియోలు</a>
+          
+        </div>
+      </li>
+    </ul>
+    <button id="mute-btn">🔊</button>
+    <button id="pause-btn">||</button>
 
-    <div class="content-box">
-      <div class="info-box">
-        <img src="bvcolony.jpg" alt="జగ్గాపురం" class="village-photo">
-        <p>హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-        </p>
-      </div>
+    </nav>
+
+  <!-- ---------- IMAGE GALLERY ---------- -->
+  <div class="gallery" id="gallery">
+    <div class="card" 
+         data-title="కృష్ణా జలాశయం" 
+         data-desc="హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
+             అందమైన గ్రామం..." 
+         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
+         data-img="bvcolony.jpg">
+      <img src="bvcolony.jpg" alt="కృష్ణా జలాశయం">
+      <div class="label">కృష్ణా జలాశయం</div>
     </div>
-    <div class="info-box">
-        <img src="bvcolony.jpg" alt="జగ్గాపురం" class="village-photo">
-        <p>హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-        </p>
-      </div>
+    <div class="card" 
+         data-title="కృష్ణా జలాశయం" 
+         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
+         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
+         data-img="https://picsum.photos/id/1018/800/600">
+      <img src="https://picsum.photos/id/1018/400/300" alt="కృష్ణా జలాశయం">
+      <div class="label">కృష్ణా జలాశయం</div>
     </div>
-    <div class="info-box">
-        <img src="bvcolony.jpg" alt="జగ్గాపురం" class="village-photo">
-        <p>హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
+    <div class="card" 
+         data-title="కృష్ణా జలాశయం" 
+         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
+         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
+         data-img="https://picsum.photos/id/1018/800/600">
+      <img src="https://picsum.photos/id/1018/400/300" alt="కృష్ణా జలాశయం">
+      <div class="label">కృష్ణా జలాశయం</div>
+    </div>
+    
+    <div class="card" 
+         data-title="కృష్ణా జలాశయం" 
+         data-desc="హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
             హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
             హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
             హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
@@ -286,82 +454,353 @@
             హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
             హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
             హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-        </p>
-      </div>
+            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం..." 
+         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
+         data-img="https://picsum.photos/id/1018/800/600">
+      <img src="https://picsum.photos/id/1018/400/300" alt="కృష్ణా జలాశయం">
+      <div class="label">కృష్ణా జలాశయం</div>
+    </div>
+    <div class="card" 
+         data-title="కృష్ణా జలాశయం" 
+         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
+         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
+         data-img="https://picsum.photos/id/1018/800/600">
+      <img src="https://picsum.photos/id/1018/400/300" alt="కృష్ణా జలాశయం">
+      <div class="label">కృష్ణా జలాశయం</div>
+    </div>
+    <div class="card" 
+         data-title="కృష్ణా జలాశయం" 
+         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
+         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
+         data-img="https://picsum.photos/id/1018/800/600">
+      <img src="https://picsum.photos/id/1018/400/300" alt="కృష్ణా జలాశయం">
+      <div class="label">కృష్ణా జలాశయం</div>
+    </div>
+    <div class="card" 
+         data-title="కృష్ణా జలాశయం" 
+         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
+         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
+         data-img="https://picsum.photos/id/1018/800/600">
+      <img src="https://picsum.photos/id/1018/400/300" alt="కృష్ణా జలాశయం">
+      <div class="label">కృష్ణా జలాశయం</div>
+    </div>
+    <div class="card" 
+         data-title="కృష్ణా జలాశయం" 
+         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
+         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
+         data-img="https://picsum.photos/id/1018/800/600">
+      <img src="https://picsum.photos/id/1018/400/300" alt="కృష్ణా జలాశయం">
+      <div class="label">కృష్ణా జలాశయం</div>
+    </div>
+    <div class="card" 
+         data-title="కృష్ణా జలాశయం" 
+         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
+         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
+         data-img="https://picsum.photos/id/1018/800/600">
+      <img src="https://picsum.photos/id/1018/400/300" alt="కృష్ణా జలాశయం">
+      <div class="label">కృష్ణా జలాశయం</div>
+    </div>
+    <div class="card" 
+         data-title="కృష్ణా జలాశయం" 
+         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
+         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
+         data-img="https://picsum.photos/id/1018/800/600">
+      <img src="https://picsum.photos/id/1018/400/300" alt="కృష్ణా జలాశయం">
+      <div class="label">కృష్ణా జలాశయం</div>
+    </div>
+    <div class="card" 
+         data-title="కృష్ణా జలాశయం" 
+         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
+         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
+         data-img="https://picsum.photos/id/1018/800/600">
+      <img src="https://picsum.photos/id/1018/400/300" alt="కృష్ణా జలాశయం">
+      <div class="label">కృష్ణా జలాశయం</div>
+    </div>
+    <div class="card" 
+         data-title="కృష్ణా జలాశయం" 
+         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
+         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
+         data-img="https://picsum.photos/id/1018/800/600">
+      <img src="https://picsum.photos/id/1018/400/300" alt="కృష్ణా జలాశయం">
+      <div class="label">కృష్ణా జలాశయం</div>
+    </div>
+    <div class="card" 
+         data-title="కృష్ణా జలాశయం" 
+         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
+         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
+         data-img="https://picsum.photos/id/1018/800/600">
+      <img src="https://picsum.photos/id/1018/400/300" alt="కృష్ణా జలాశయం">
+      <div class="label">కృష్ణా జలాశయం</div>
+    </div>
+    <div class="card" 
+         data-title="కృష్ణా జలాశయం" 
+         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
+         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
+         data-img="https://picsum.photos/id/1018/800/600">
+      <img src="https://picsum.photos/id/1018/400/300" alt="కృష్ణా జలాశయం">
+      <div class="label">కృష్ణా జలాశయం</div>
+    </div>
+    <div class="card" 
+         data-title="కృష్ణా జలాశయం" 
+         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
+         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
+         data-img="https://picsum.photos/id/1018/800/600">
+      <img src="https://picsum.photos/id/1018/400/300" alt="కృష్ణా జలాశయం">
+      <div class="label">కృష్ణా జలాశయం</div>
     </div>
 
-    <h2>ఫోటో గ్యాలరీ</h2>
-    <div class="gallery">
-      <img src="desaicheruvuthoom.jpg" alt="ఫోటో 1">
-      <img src="bvcolony.jpg" alt="ఫోటో 2">
-      <img src="cheruvukaluva.jpg" alt="ఫోటో 3">
+    <div class="card" 
+         data-title="పచ్చటి తోట" 
+         data-desc="ప్రకృతి మధ్యలో ఉన్న ఆర్గానిక్ పంటల తోట." 
+         data-meta="సీజన్: జూలై–సెప్టెంబర్" 
+         data-img="https://picsum.photos/id/1025/800/600">
+      <img src="https://picsum.photos/id/1025/400/300" alt="పచ్చటి తోట">
+      <div class="label">పచ్చటి తోట</div>
+    </div>
+
+    <div class="card" 
+         data-title="చాయ్ దుకాణం" 
+         data-desc="ప్రతి ఉదయం 6 నుంచి రాత్రి 9 వరకు తెరచి ఉంటుంది." 
+         data-meta="స్థానం: గ్రామం మధ్యలో" 
+         data-img="https://picsum.photos/id/1060/800/600">
+      <img src="https://picsum.photos/id/1060/400/300" alt="చాయ్ దుకాణం">
+      <div class="label">చాయ్ దుకాణం</div>
     </div>
   </div>
 
-  <audio id="villageAudio" loop>
-    <source src="tdp1.mp3" type="audio/mpeg">
-    మీ బ్రౌజర్ ఆడియో ప్లే చేయడం సపోర్ట్ చేయదు.
-  </audio>
+  <!-- ---------- MODAL ---------- -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <button class="close-btn" id="closeBtn">&times;</button>
+     
+      <div class="m-info">
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+        <div class="meta" id="modalMeta"></div>
+      </div>
+    </div>
+  </div>
 
+  <!-- ---------- FOOTER ---------- -->
   <footer>
-    <div class="footer-container">
-      <div class="footer-section1">
-        <h3>మా గురించి</h3>
-        <p>ఇది మా గ్రామ తెలుగుదేశం పార్టి కుటుంబ వెబ్‌సైట్.</p>
-      </div>
-      <div class="footer-section2">
-        <h3>లింకులు</h3>
-        <a href="#">మొదటి పేజీ</a>
-        <a href="#">సంప్రదించండి</a>
-        <a href="#">ఫోటో గ్యాలరీ</a>
-      </div>
-      <div class="footer-section3">
-        <h3>సంప్రదించండి</h3>
-        <p>📍 బోయ నాగరాజు, హాలహర్వి గ్రామం</p>
-        <p>📞 81421 93789</p>
-      </div>
+      <div class="footer-container">
+    <div class="footer-section1">
+      <h3>మా గురించి</h3>
+      <p>ఇది మా గ్రామ కుటుంబ బుక్లెట్ వెబ్‌సైట్. గ్రామ చరిత్ర, వ్యక్తులు, ఫోటోలు — అన్నీ ఒకచోట.</p>
     </div>
-    <div class="footer-bottom">
-      ఎమ్మిగనూరు తెలుగుదేశం కుటుంబం | Designed by <b>Boya Nagaraju</b>
-    </div>
-  </footer>
 
+    <div class="footer-section2">
+      <h3>ఉపయోగకరమైన లింకులు</h3>
+      <a href="#">మొదటి పేజీ</a>
+      <a href="#">సంప్రదించండి</a>
+      <a href="#">ఫోటో గ్యాలరీ</a>
+    </div>
+
+    <div class="footer-section3">
+      <h3>మమ్మల్ని సంప్రదించండి</h3>
+      <p>📍 బోయ నాగరాజు, హాలహర్వి గ్రామం, నందవరం, కర్నూలు జిల్లా</p>
+      <p>📞 81421 93789</p>
+      <p>✉️ info@example.com</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 కుటుంబ బుక్లెట్ | Designed by <b>Boya Nagaraju</b>
+
+      <audio id="bg-audio" preload="auto" loop playsinline>
+    <source src="tdp1.mp3" type="audio/mpeg">
+    మీ బ్రౌజర్ ఆడియో ట్యాగ్ ని సపోర్ట్ చేయదు.
+  </audio>
+<div id="controls" class="audio-controls" aria-hidden="true">
+    
+    
+  </div>
+  <!-- fallback play బటన్ (మొబైల్ కోసం) -->
+  
+
+  </div>
+
+</footer>
+
+  <!-- ---------- SCRIPT ---------- -->
+   <script>
+  (function(){
+    const audio = document.getElementById('bg-audio');
+    const playBtn = document.getElementById('play-btn');
+    const controls = document.getElementById('controls');
+    const pauseBtn = document.getElementById('pause-btn');
+    const muteBtn = document.getElementById('mute-btn');
+
+    // ప్రాథమిక కొంత సెటప్
+    audio.volume = 0.8; // అవసరమైతే సర్దుకోండి (0.0 - 1.0)
+
+    // పేజీ లోడ్ అయ్యగానే ప్లే చేయడానికి ప్రయత్నించు
+    window.addEventListener('DOMContentLoaded', () => {
+      // ప్రయత్నం
+      const p = audio.play();
+      if (p !== undefined) {
+        p.then(() => {
+          // ప్లే అయిపోయింది — UI controls చూపించొచ్చు
+          controls.style.display = 'block';
+          controls.setAttribute('aria-hidden','false');
+        }).catch((err) => {
+          // బ్రౌజర్ autoplay బ్లాక్ చేసింది -> యూజర్ ఇంటరాక్షన్ కోరాలి
+          console.log('Autoplay blocked:', err);
+          showPlayButton();
+          // optional: అటైన సందర్భంలో ఒక టచ్/క్లిక్ వచ్చిన వెంటనే ప్లే ట్రై చేయడం
+          // add a one-time listener to try again on first user gesture
+          const one = () => {
+            audio.play().then(() => {
+              hidePlayButton();
+              controls.style.display = 'block';
+              controls.setAttribute('aria-hidden','false');
+            }).catch(()=> {
+              // ఇంకా బ్లాక్ అయితే tetap show button
+              showPlayButton();
+            });
+            document.removeEventListener('click', one);
+            document.removeEventListener('touchstart', one);
+          };
+          document.addEventListener('click', one, {once: true});
+          document.addEventListener('touchstart', one, {once: true});
+        });
+      } else {
+        // Promise undefined (బిజారక) — ఫాల్బ్యాక్
+        showPlayButton();
+      }
+    });
+
+    function showPlayButton() {
+      playBtn.classList.add('show');
+    }
+    function hidePlayButton() {
+      playBtn.classList.remove('show');
+    }
+
+    // యూజర్ బటన్ తో ప్లే
+    playBtn.addEventListener('click', async () => {
+      try {
+        await audio.play();
+        hidePlayButton();
+        controls.style.display = 'block';
+        controls.setAttribute('aria-hidden','false');
+      } catch (e) {
+        console.warn('Play failed even after user click:', e);
+      }
+    });
+
+    // pause / mute controls
+    pauseBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        pauseBtn.textContent = '||';
+      } else {
+        audio.pause();
+        pauseBtn.textContent = '▶︎';
+      }
+    });
+
+    muteBtn.addEventListener('click', () => {
+      audio.muted = !audio.muted;
+      muteBtn.textContent = audio.muted ? '🔈' : '🔊';
+    });
+
+    // (ఐచ్ఛిక) పేజీ విడిచేప్పుడు ఆడియో ఆపడం
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        // backgroundలో గానీ, మీరు ఇష్టమైతే pause చేయవచ్చు
+        // audio.pause();
+      } else {
+        // తిరిగి వచ్చినప్పుడు ఆటోప్లే ప్రయత్నాలుంటే...
+      }
+    });
+
+  })();
+</script>
+ <script>
+function toggleDropdown(id) {
+  // అన్ని డ్రాప్‌డౌన్‌లను మూసేయండి
+  document.querySelectorAll('.dropdown-content').forEach(drop => {
+    if (drop.id !== id) drop.style.display = 'none';
+  });
+
+  // ప్రస్తుత డ్రాప్‌డౌన్ తెరవడం/మూసేయడం
+  const dropdown = document.getElementById(id);
+  const isOpen = dropdown.style.display === 'block';
+  dropdown.style.display = isOpen ? 'none' : 'block';
+
+  // మౌస్ బయటకు వెళ్ళగానే మూసేయడం
+  if (!isOpen) {
+    // మొదట పాత లిసనర్ తీసేయండి
+    dropdown.onmouseleave = null;
+
+    // మౌస్ బయటకి వెళ్ళిన వెంటనే మూసేయండి
+    dropdown.onmouseleave = () => {
+      dropdown.style.display = 'none';
+    };
+
+    // అలాగే parent <li> పైనుండి మౌస్ బయటికి వెళ్ళినప్పుడు కూడా మూసేయండి
+    const parentLi = dropdown.closest('li');
+    if (parentLi) {
+      parentLi.onmouseleave = () => {
+        dropdown.style.display = 'none';
+      };
+    }
+  }
+}
+
+// బయట ఎక్కడైనా క్లిక్ చేసినప్పుడు కూడా మూసేయడం
+window.addEventListener('click', function(event) {
+  if (!event.target.closest('.navbar')) {
+    document.querySelectorAll('.dropdown-content').forEach(drop => drop.style.display = 'none');
+  }
+});
+</script>
   <script>
-    // గ్యాలరీ ఫోటోపై క్లిక్ చేస్తే popup చూపించటం
-    document.querySelectorAll('.gallery img').forEach(img => {
-      img.addEventListener('click', () => {
-        const overlay = document.createElement('div');
-        overlay.style.position = 'fixed';
-        overlay.style.top = 0;
-        overlay.style.left = 0;
-        overlay.style.width = '100%';
-        overlay.style.height = '100%';
-        overlay.style.background = 'rgba(0,0,0,0.8)';
-        overlay.style.display = 'flex';
-        overlay.style.justifyContent = 'center';
-        overlay.style.alignItems = 'center';
-        overlay.innerHTML = `<img src="${img.src}" style="max-width:90%; max-height:90%; border-radius:10px;">`;
-        overlay.onclick = () => overlay.remove();
-        document.body.appendChild(overlay);
-      });
+    const gallery = document.getElementById('gallery');
+    const modalBackdrop = document.getElementById('modalBackdrop');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalMeta = document.getElementById('modalMeta');
+    const closeBtn = document.getElementById('closeBtn');
+
+    gallery.addEventListener('click', e => {
+      const card = e.target.closest('.card');
+      if (!card) return;
+     /* modalImage.src = card.dataset.img;*/
+      modalTitle.textContent = card.dataset.title;
+      modalDesc.textContent = card.dataset.desc;
+      modalMeta.textContent = card.dataset.meta;
+      modalBackdrop.style.display = 'flex';
     });
 
-    // 🎵 ఆడియో బటన్ నియంత్రణ
-    const audio = document.getElementById('villageAudio');
-    const playBtn = document.getElementById('playBtn');
-    const pauseBtn = document.getElementById('pauseBtn');
-
-    // పేజీ ఓపెన్ అయినప్పుడు ఆటోప్లే ప్రయత్నం (కొన్ని మొబైల్‌లలో యూజర్ interaction అవసరం)
-    window.addEventListener('load', () => {
-      audio.volume = 0.6;
-      audio.play().catch(() => {
-        console.log("User interaction needed to start audio.");
-      });
+    closeBtn.addEventListener('click', () => {
+      modalBackdrop.style.display = 'none';
     });
 
-    playBtn.addEventListener('click', () => audio.play());
-    pauseBtn.addEventListener('click', () => audio.pause());
+    modalBackdrop.addEventListener('click', e => {
+      if (e.target === modalBackdrop) modalBackdrop.style.display = 'none';
+    });
   </script>
+  <script>
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      // అన్ని కార్డుల ఇన్ఫో దాచండి
+      document.querySelectorAll('.info-box').forEach(box => box.classList.remove('active'));
+
+      // ప్రస్తుత కార్డుకు సంబంధించిన ఇన్ఫో చూపించండి
+      const infoBox = card.querySelector('.info-box');
+      infoBox.innerHTML = `
+        <h3>${card.dataset.title}</h3>
+        <p>${card.dataset.info}</p>
+      `;
+      infoBox.classList.add('active');
+    });
+  });
+</script>
 
 </body>
 </html>
