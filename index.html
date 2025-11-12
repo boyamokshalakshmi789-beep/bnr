@@ -187,6 +187,97 @@
   }
 
   }
+
+/* popup background */
+
+.popup-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+/* visible state */
+.popup-card.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* popup inner card */
+.popup-inner {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px 40px;
+  max-width: 450px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+  text-align: center;
+  position: relative;
+  animation: zoomIn 0.4s ease;
+}
+
+/* popup text */
+.popup-inner p {
+  font-size: 18px;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* heading */
+.popup-inner h3 {
+  margin-top: 0;
+  color: darkblue;
+}
+
+/* close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: crimson;
+  color: white;
+  border: none;
+  font-size: 20px;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+/* zoom animation */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* images hover effect (optional) */
+.content img {
+  cursor: pointer;
+  transition: transform 0.4s;
+}
+
+.content img:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+
 /*footer*/
 
   .footer-container {
@@ -195,6 +286,7 @@
     flex-wrap: wrap;
     text-align: center;
     padding: 20px;
+    background-color: black;
   }
 
   .footer-container div {
@@ -210,6 +302,7 @@
 
   .footer-container p {
     line-height: 1.6;
+    color: white;
   }
 
   .footer-section2 a {
@@ -230,6 +323,7 @@
     padding: 10px;
     border-top: 1px solid #555;
     font-size: 14px;
+    color: white;
   }
 
   @media (max-width: 600px) {
@@ -327,8 +421,8 @@
         </div>
       </li>
       <li>
-        <a onclick="toggleDropdown('డౌన్లోడ్స్')">డౌన్లోడ్స్</a>
-        <div id="downlods" class="dropdown-content">
+        <a onclick="toggleDropdown('downloads')">డౌన్లోడ్స్</a>
+<div id="downloads" class="dropdown-content">
           <a>పాటలు</a>
           <a>ఫోటోలు</a>
           <a>వీడియోలు</a>
@@ -388,7 +482,7 @@
       <p>✉️ info@example.com</p>
     </div>
   </div>
-
+  
   <div class="footer-bottom">
     © 2025 కుటుంబ బుక్లెట్ | Designed by <b>Boya Nagaraju</b>
 
@@ -406,6 +500,7 @@
   </div>
 
 </footer>
+<!--
 <script>
   (function(){
     const audio = document.getElementById('bg-audio');
@@ -539,6 +634,7 @@ window.addEventListener('click', function(event) {
   }
 });
 </script>
+-->
 <script>
     document.querySelectorAll('.content img').forEach(img => {
     img.addEventListener('click', () => {
@@ -557,6 +653,54 @@ window.addEventListener('click', function(event) {
     document.body.appendChild(overlay);
   });
 });
+
+
+
+
+  // ప్రతి ఫోటోకు వివరాలు
+  const photoDetails = {
+    "cbn.jpg": "నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.",
+    "lokesh.jpg": "నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.నారా లోకేష్ — యువ నాయకుడు, మాజీ మంత్రి. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.",
+    "bvj1.jpg": "బీవీ జయనాగేశ్వర రెడ్డి — ఎమ్మిగనూరు నాయకుడు.",
+    "bvpooja.jpg": "బీవీ జయనాగేశ్వర రెడ్డి గారి పూజా కార్యక్రమం.",
+    "govindhu.jpg": "గోవిందు గారు — స్థానిక కార్యకర్త.",
+    "desaicheruvuthoom.jpg": "దేశైచెరువు తూమ్ — అందమైన గ్రామ దృశ్యం."
+  };
+
+  // popup card create చేయడం
+  const popup = document.createElement("div");
+  popup.classList.add("popup-card");
+  popup.innerHTML = `
+    <div class="popup-inner">
+      <button class="close-btn">&times;</button>
+      <h3>ఫోటో వివరాలు</h3>
+      <p id="photoText"></p>
+    </div>
+  `;
+  document.body.appendChild(popup);
+
+  const photoText = document.getElementById("photoText");
+  const closeBtn = popup.querySelector(".close-btn");
+
+  // image click event
+  document.querySelectorAll(".content img").forEach(img => {
+    img.addEventListener("click", () => {
+      const fileName = img.src.split("/").pop();
+      const text = photoDetails[fileName] || "వివరాలు అందుబాటులో లేవు.";
+      photoText.textContent = text;
+      popup.classList.add("active");
+    });
+  });
+
+  // close popup
+  closeBtn.addEventListener("click", () => popup.classList.remove("active"));
+  popup.addEventListener("click", e => {
+    if (e.target === popup) popup.classList.remove("active");
+  });
+
+
+
+
 </script>
 </body>
 </html>
