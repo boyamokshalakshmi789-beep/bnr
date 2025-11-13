@@ -236,8 +236,19 @@
   margin-top: 0;
   color: darkblue;
 }
+/*poopup-liner*/
+.popup-inner {
+      max-width: 950px;
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 5px 5px 20px 20px yellow;
+      overflow: hidden;
+      display: grid;
+     /* grid-template-columns: 1fr 1fr;*/
+    }
 
-/* close button */
+ 
 .close-btn {
   position: absolute;
   top: 10px;
@@ -347,7 +358,7 @@
        
   </div>
   <h1>జై జై తెలుగుదేశం</h1>
-  <img src="cycle.jpg" alt="సైకిల్ లోగో">
+  <img src="cycle.jpg" alt="">
 </header>
 
   <nav class="navbar">
@@ -456,11 +467,7 @@
           <img src="bvcolony.jpg" alt="నారా లోకేష్">
 </div>
 
-<!-- 🟢 LIGHTBOX POPUPS -->
-<div id="img1" class="lightbox"><a href="#" class="close-btn">×</a><img src="nandavaram1.jpg" alt=""></div>
-<div id="img3" class="lightbox"><a href="#" class="close-btn">×</a><img src="gonigandla1.jpg" alt=""></div>
-<div id="img5" class="lightbox"><a href="#" class="close-btn">×</a><img src="emiganur1.jpg" alt=""></div>
-<div id="img7" class="lightbox"><a href="#" class="close-btn">×</a><img src="emiganur_town1.jpg" alt=""></div>
+
 <footer>
       <div class="footer-container">
     <div class="footer-section1">
@@ -500,7 +507,7 @@
   </div>
 
 </footer>
-<!--
+
 <script>
   (function(){
     const audio = document.getElementById('bg-audio');
@@ -634,30 +641,11 @@ window.addEventListener('click', function(event) {
   }
 });
 </script>
--->
+
 <script>
-    document.querySelectorAll('.content img').forEach(img => {
-    img.addEventListener('click', () => {
-    const overlay = document.createElement('div');
-    overlay.style.position = 'fixed';
-    overlay.style.top = 0;
-    overlay.style.left = 0;
-    overlay.style.width = '100%';
-    overlay.style.height = '100%';
-    overlay.style.background = 'rgba(0,0,0,0.8)';
-    overlay.style.display = 'flex';
-    overlay.style.justifyContent = 'center';
-    overlay.style.alignItems = 'center';
-    overlay.innerHTML = `<img src="${img.src}" style="max-width:90%; max-height:90%; border-radius:10px;">`;
-    overlay.onclick = () => overlay.remove();
-    document.body.appendChild(overlay);
-  });
-});
+ 
 
-
-
-
-  // ప్రతి ఫోటోకు వివరాలు
+// ప్రతి ఫోటోకు వివరాలు
   const photoDetails = {
     "cbn.jpg": "నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.",
     "lokesh.jpg": "నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.నారా లోకేష్ — యువ నాయకుడు, మాజీ మంత్రి. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.",
@@ -672,7 +660,7 @@ window.addEventListener('click', function(event) {
   popup.classList.add("popup-card");
   popup.innerHTML = `
     <div class="popup-inner">
-      <button class="close-btn">&times;</button>
+      <button class="close-btn"></button>
       <h3>ఫోటో వివరాలు</h3>
       <p id="photoText"></p>
     </div>
