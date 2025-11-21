@@ -337,11 +337,32 @@
     color: white;
   }
 
-  @media (max-width: 600px) {
-    .footer-container {
-      flex-direction: column;
-      text-align: center;
-    }
+  
+    @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header img {
+    height: 80px;
+  }
+
+  .leaders {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar a {
+    display: block;
+    text-align: center;
+  }
+
   }
   </style>
 </head>
@@ -509,7 +530,7 @@
 </footer>
 
 <script>
-  (function(){
+  /*(function(){
     const audio = document.getElementById('bg-audio');
     const playBtn = document.getElementById('play-btn');
     const controls = document.getElementById('controls');
@@ -600,7 +621,7 @@
       }
     });
 
-  })();
+  })();*/
 </script>
  <script>
 function toggleDropdown(id) {
