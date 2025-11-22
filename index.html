@@ -364,6 +364,13 @@
   }
 
   }
+  html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;   /* మొబైల్ లో ఎడమ వైపు చూపించే gap పూర్తిగా పోతుంది */
+  box-sizing: border-box;
+}
   </style>
 </head>
 <body>
@@ -512,7 +519,7 @@
   </div>
   
   <div class="footer-bottom">
-    © 2025 కుటుంబ బుక్లెట్ | Designed by <b>Boya Nagaraju</b>
+    © తెలుగు దేశం పార్టి కుటుంబ బుక్లెట్ | Designed by <b>Boya Nagaraju</b>
 
       <audio id="bg-audio" preload="auto" loop playsinline>
     <source src="tdp1.mp3" type="audio/mpeg">
@@ -706,7 +713,22 @@ window.addEventListener('click', function(event) {
   popup.addEventListener("click", e => {
     if (e.target === popup) popup.classList.remove("active");
   });
+/*popup new style*/closeBtn<script>
+function openPopup(src) {
+document.getElementById("popupImg").src = src;
+document.getElementById("popupBox").style.display = "flex";
+}
 
+
+function hidePopup() {
+document.getElementById("popupBox").style.display = "none";
+}
+
+
+function closePopup(event) {
+if (event.target.id === "popupBox") hidePopup();
+}
+</script>
 
 
 
