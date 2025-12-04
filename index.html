@@ -2,933 +2,914 @@
 <html lang="te">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ఎమ్మిగనూరు తెలుగుదేశం పార్టి </title>
-    <style>
-        body {
-
-            font-family: "Noto Sans Telugu", sans-serif;
-            margin: 0;
-            background: lightyellow;
-            animation: body 10s ease-in-out infinite;
-        }
-
-        @keyframes body {
-            0% {
-                background: lightyellow;
-            }
-
-            25% {
-                background: lightblue;
-            }
-
-            50% {
-                background: lightblue;
-            }
-
-            75% {
-                background: #b5e6ad;
-            }
-
-            100% {
-                background: lightyellow;
-            }
-        }
-
-        /*header*/
-
-        header {
-            padding-bottom: 10px;
-            padding-top: 10px;
-            background: linear-gradient(90deg, #ffcc80, #ffb74d);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            animation: h1 10s ease-in infinite;
-
-        }
-
-        @keyframes h1 {
-            0% {
-                color: #555;
-            }
-
-            50% {
-                color: white;
-            }
-
-            100% {
-                color: #555;
-            }
-        }
-
-        .leaders {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        header img {
-            height: 150px;
-            border-radius: 20px;
-        }
-
-        .leaders img {
-            height: 150px;
-            width: 150px;
-            border-radius: 50%;
-            border: 4px solid #fff;
-            box-shadow: 0 0 10px #555;
-            object-fit: cover;
-            animation: img 2s ease infinite;
-        }
-
-        @keyframes img {
-            0% {
-                border: 4px solid #fff;
-            }
-
-            30% {
-                border: 4px solid red;
-            }
-
-            60% {
-                border: 4px solid greenyellow;
-            }
-
-            100% {
-                border: 4px solid #fff;
-            }
-        }
-
-        /* Navigation bar */
-        .navbar {
-            margin: 0;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            background-color: #c8102e;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .navbar ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 40px;
-        }
-
-        .navbar li {
-            position: relative;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            padding: 10px 16px;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .navbar a:hover {
-            background: #e52b50;
-        }
-
-        /* Dropdown styles */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            /* navbar కిందనే మొదలవుతుంది */
-            left: 0;
-            background-color: white;
-            min-width: 180px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 10;
-            border-radius: 0 0 8px 8px;
-            margin-top: 0;
-            /* ఈ లైన్ జోడించాలి */
-            padding: 0;
-            /* గ్యాప్ తగ్గించడానికి */
-        }
-
-
-        .dropdown-content a {
-            color: #333;
-            padding: 10px 16px;
-            text-decoration: none;
-            display: block;
-            transition: background 0.3s;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f0f0f0;
-        }
-
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* 🔹 CONTENT */
-        .content {
-            margin: 30px auto;
-            max-width: 1600px;
-        }
-
-        .content img:hover {
-            transform: scale(1.1);
-            transition: 2s;
-        }
-
-        .content img {
-            width: 300px;
-            height: 250px;
-            border-radius: 20px;
-            border-left: 6px solid #2e7d32;
-            border-right: 6px solid #2e7d32;
-            margin: 35px;
-        }
-
-        .content h1 {
-            text-align: center;
-        }
-
-        body {
-            margin: 0;
-            font-family: "Noto Sans Telugu", sans-serif;
-            background: #f0f0f0;
-        }
-
-
-
-
-        /* Header */
-        header {
-            background: lightgoldenrodyellow;
-            color: #fff;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 22px;
-        }
-
-
-        /* Navigation */
-        nav {
-            background: #555;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 12px;
-            font-size: 18px;
-        }
-
-
-        /* Image Grid – 10 per row */
-
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-
-
-        /* Popup Background */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-        }
-
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(4px);
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-
-        /* Popup Box */
-        .popup-content {
-            background: #fff;
-            border-radius: 12px;
-            max-width: 90%;
-            width: 450px;
-            padding: 18px;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
-            animation: popupAnim 0.4s ease;
-        }
-
-
-        @keyframes popupAnim {
-            from {
-                transform: scale(0.6);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-
-        .popup img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 12px;
-        }
-
-
-        .close-btn {
-            background: #e63946;
-            color: #fff;
-            padding: 10px 18px;
-            border: none;
-            font-size: 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 9999;
-        }
-
-        /* ✅ మొబైల్ view లో ఫోటోలు, header, navbar సరిగా రావడానికి */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            header img {
-                height: 80px;
-            }
-
-            .leaders {
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-
-            .navbar ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .navbar a {
-                display: block;
-                text-align: center;
-            }
-
-        }
-
-        /* popup background */
-
-        .popup-card {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            visibility: hidden;
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 9999;
-        }
-
-        /* visible state */
-        .popup-card.active {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        /* popup inner card */
-        .popup-inner {
-            background: #fff;
-            border-radius: 15px;
-            padding: 25px 40px;
-            max-width: 450px;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-            text-align: center;
-            position: relative;
-            animation: zoomIn 0.4s ease;
-        }
-
-        /* popup text */
-        .popup-inner p {
-            font-size: 18px;
-            color: #222;
-            line-height: 1.6;
-        }
-
-        /* heading */
-        .popup-inner h3 {
-            margin-top: 0;
-            color: darkblue;
-        }
-
-        /*poopup-liner*/
-        .popup-inner {
-            max-width: 950px;
-            width: 100%;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 5px 5px 20px 20px yellow;
-            overflow: hidden;
-            display: grid;
-            /* grid-template-columns: 1fr 1fr;*/
-        }
-
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: crimson;
-            color: white;
-            border: none;
-            font-size: 20px;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            cursor: pointer;
-        }
-
-        /* zoom animation */
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.6);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        /* images hover effect (optional) */
-        .content img {
-            cursor: pointer;
-            transition: transform 0.4s;
-        }
-
-        .content img:hover {
-            transform: scale(1.05);
-        }
-
-        /*footer*/
-
-        .footer-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            text-align: center;
-            padding: 20px;
-            background-color: black;
-        }
-
-        .footer-container div {
-            flex: 1;
-            min-width: 250px;
-            margin: 10px;
-        }
-
-        .footer-container h3 {
-            color: #ffcc00;
-            margin-bottom: 10px;
-        }
-
-        .footer-container p {
-            line-height: 1.6;
-            color: white;
-        }
-
-        .footer-section2 a {
-            display: block;
-            color: #fff;
-            text-decoration: none;
-            margin: 5px 0;
-            transition: 0.3s;
-        }
-
-        .footer-section2 a:hover {
-            color: #ffcc00;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            background: #111;
-            padding: 10px;
-            border-top: 1px solid #555;
-            font-size: 14px;
-            color: white;
-        }
-
-
-        @media (max-width: 768px) {
-
-            .navbar {
-                position: relative;
-            }
-
-            /* 3 dots button */
-            .menu-btn {
-                display: block;
-                font-size: 28px;
-                background: none;
-                border: none;
-                color: white;
-                cursor: pointer;
-                padding: 5px 15px;
-            }
-
-            /* Main menu hide initially */
-            .nav-links {
-                display: none;
-                position: absolute;
-                right: 10px;
-                top: 55px;
-                background: #c8102e;
-                width: 160px;
-                padding: 10px;
-                border-radius: 8px;
-                flex-direction: column;
-                gap: 10px;
-                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-                animation: fadeIn 0.3s;
-            }
-
-            .nav-links li {
-                padding: 8px 0;
-            }
-
-            .nav-links a {
-                color: white;
-                font-size: 18px;
-            }
-        }
-
-        /* fade animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-5px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ఎమ్మిగనూరు తెలుగుదేశం పార్టి </title>
+  <style>
+    body {
+
+      font-family: "Noto Sans Telugu", sans-serif;
+      margin: 0;
+      background: lightyellow;
+      animation: body 10s ease-in-out infinite;
+    }
+
+    @keyframes body {
+      0% {
+        background: lightyellow;
+      }
+
+      25% {
+        background: lightblue;
+      }
+
+      50% {
+        background: lightblue;
+      }
+
+      75% {
+        background: #b5e6ad;
+      }
+
+      100% {
+        background: lightyellow;
+      }
+    }
+
+    /*header*/
+
+    header {
+      padding-bottom: 10px;
+      padding-top: 10px;
+      background: linear-gradient(90deg, #ffcc80, #ffb74d);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      animation: h1 10s ease-in infinite;
+
+    }
+
+    @keyframes h1 {
+      0% {
+        color: #555;
+      }
+
+      50% {
+        color: white;
+      }
+
+      100% {
+        color: #555;
+      }
+    }
+
+    .leaders {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    header img {
+      height: 150px;
+      border-radius: 20px;
+    }
+
+    .leaders img {
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 0 10px #555;
+      object-fit: cover;
+      animation: img 2s ease infinite;
+    }
+
+    @keyframes img {
+      0% {
+        border: 4px solid #fff;
+      }
+
+      30% {
+        border: 4px solid red;
+      }
+
+      60% {
+        border: 4px solid greenyellow;
+      }
+
+      100% {
+        border: 4px solid #fff;
+      }
+    }
+
+    /* Navigation bar */
+    .navbar {
+      margin: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: #c8102e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 40px;
+    }
+
+    .navbar li {
+      position: relative;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px 16px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .navbar a:hover {
+      background: #e52b50;
+    }
+
+    /* Dropdown styles */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      /* navbar కిందనే మొదలవుతుంది */
+      left: 0;
+      background-color: white;
+      min-width: 180px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 10;
+      border-radius: 0 0 8px 8px;
+      margin-top: 0;
+      /* ఈ లైన్ జోడించాలి */
+      padding: 0;
+      /* గ్యాప్ తగ్గించడానికి */
+    }
+
+
+    .dropdown-content a {
+      color: #333;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* 🔹 CONTENT */
+    .content {
+      margin: 30px auto;
+      max-width: 1600px;
+    }
+
+    .content img:hover {
+      transform: scale(1.1);
+      transition: 2s;
+    }
+
+    .content img {
+      width: 300px;
+      height: 250px;
+      border-radius: 20px;
+      border-left: 6px solid #2e7d32;
+      border-right: 6px solid #2e7d32;
+      margin: 35px;
+    }
+
+    .content h1 {
+      text-align: center;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans Telugu", sans-serif;
+      background: #f0f0f0;
+    }
+
+
+
+
+    /* Header */
+    header {
+      background: lightgoldenrodyellow;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 22px;
+    }
+
+
+    /* Navigation */
+    nav {
+      background: #555;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 18px;
+    }
+
+
+    /* Image Grid – 10 per row */
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+
+    /* Popup Background */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(4px);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+
+    /* Popup Box */
+    .popup-content {
+      background: #fff;
+      border-radius: 12px;
+      max-width: 90%;
+      width: 450px;
+      padding: 18px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+      animation: popupAnim 0.4s ease;
+    }
+
+
+    @keyframes popupAnim {
+      from {
+        transform: scale(0.6);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+
+    .popup img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+
+
+    .close-btn {
+      background: #e63946;
+      color: #fff;
+      padding: 10px 18px;
+      border: none;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 9999;
+    }
+
+    /* ✅ మొబైల్ view లో ఫోటోలు, header, navbar సరిగా రావడానికి */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      header img {
+        height: 80px;
+      }
+
+      .leaders {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .navbar a {
+        display: block;
+        text-align: center;
+      }
+
+    }
+
+    /* popup background */
+
+    .popup-card {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 9999;
+    }
+
+    /* visible state */
+    .popup-card.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* popup inner card */
+    .popup-inner {
+      background: #fff;
+      border-radius: 15px;
+      padding: 25px 40px;
+      max-width: 450px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+      text-align: center;
+      position: relative;
+      animation: zoomIn 0.4s ease;
+    }
+
+    /* popup text */
+    .popup-inner p {
+      font-size: 18px;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* heading */
+    .popup-inner h3 {
+      margin-top: 0;
+      color: darkblue;
+    }
+
+    /*poopup-liner*/
+    .popup-inner {
+      max-width: 950px;
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 5px 5px 20px 20px yellow;
+      overflow: hidden;
+      display: grid;
+      /* grid-template-columns: 1fr 1fr;*/
+    }
+
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: crimson;
+      color: white;
+      border: none;
+      font-size: 20px;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+
+    /* zoom animation */
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.6);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* images hover effect (optional) */
+    .content img {
+      cursor: pointer;
+      transition: transform 0.4s;
+    }
+
+    .content img:hover {
+      transform: scale(1.05);
+    }
+
+    /*footer*/
+
+    .footer-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      text-align: center;
+      padding: 20px;
+      background-color: black;
+    }
+
+    .footer-container div {
+      flex: 1;
+      min-width: 250px;
+      margin: 10px;
+    }
+
+    .footer-container h3 {
+      color: #ffcc00;
+      margin-bottom: 10px;
+    }
+
+    .footer-container p {
+      line-height: 1.6;
+      color: white;
+    }
+
+    .footer-section2 a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    .footer-section2 a:hover {
+      color: #ffcc00;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      background: #111;
+      padding: 10px;
+      border-top: 1px solid #555;
+      font-size: 14px;
+      color: white;
+    }
+
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      header img {
+        height: 80px;
+      }
+
+      .leaders {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .navbar a {
+        display: block;
+        text-align: center;
+      }
+
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+      /* మొబైల్ లో ఎడమ వైపు చూపించే gap పూర్తిగా పోతుంది */
+      box-sizing: border-box;
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <img src="partysymbol.png" alt="పార్టీ లోగో">
+  <header>
+    <img src="partysymbol.png" alt="పార్టీ లోగో">
 
-        <h1>జై తెలుగుదేశం </h1>
-        <div class="leaders">
-            <img src="BVM3.jpg" alt="బీవీ జయనాగేశ్వర రెడ్డి">
-            <img src="cbn.jpg" alt="నారా చంద్రబాబు నాయుడు">
-            <img src="lokesh.jpg" alt="నారా లోకేష్">
-            <img src="bvj1.jpg" alt="బీవీ జయనాగేశ్వర రెడ్డి">
+    <h1>జై తెలుగుదేశం </h1>
+    <div class="leaders">
+      <img src="BVM3.jpg" alt="బీవీ జయనాగేశ్వర రెడ్డి">
+      <img src="cbn.jpg" alt="నారా చంద్రబాబు నాయుడు">
+      <img src="lokesh.jpg" alt="నారా లోకేష్">
+      <img src="bvj1.jpg" alt="బీవీ జయనాగేశ్వర రెడ్డి">
+
+    </div>
+    <h1>జై జై తెలుగుదేశం</h1>
+    <img src="cycle.jpg" alt="">
+  </header>
+
+  <nav class="navbar">
+
+    <button id="play-btn" class="audio-play-button" aria-label="Play background audio">▶︎</button>
+    <ul>
+      <li>
+        <a onclick="toggleDropdown('nandavaram')">నందవరం</a>
+        <div id="nandavaram" class="dropdown-content">
+          <a href="nandavaram.html" id="nandavaram">నందవరం</a>
+          <a href="machapuram.html" id="machapuram-link">మాచాపురం</a>
+          <a href="pulachintha.html" id="pulachintha-link">పులచింత</a>
+          <a href="ibrhimpuram.html" id="ibrhimpuram-link">ఇబ్రహీంపురం</a>
+          <a href="ibrhimpuramkottala.html" id="ibrhimpuramkottala-link">ఇబ్రహీంపురం కొట్టాల</a>
+          <a href="halaharvi.html" id="halaharvi-link">హాలహర్వి</a>
+          <a href="dharmapuram.html" id="dharmapuram-link">ధర్మాపురం</a>
+          <a href="hbapuram.html" id="hbapuram-link">హెచ్ బాపురం</a>
+          <a href="jaggapuram.html" id="jaggapuram-link">జగ్గాపురం</a>
+          <a href="mugathi.html" id="mugathi-link">ముగతి</a>
+          <a href="nadhikairavadi.html" id="nadhikairavadi-link">నది కైరవడి</a>
+          <a href="kothakairavadi.html" id="kothakairavadi-link">కొత్త కైరవడి</a>
+          <a href="gangavaram.html" id="gangavaram-link">గంగవరం</a>
+          <a href="chinnakothili.html" id="chinnakothili-link">చిన్నకొత్తిలి</a>
+          <a href="joharapuram.html" id="joharapuram-link">జొహరాపురం</a>
+          <a href="pedhakothili.html" id="pedhakothili-link">పెద్దకొత్తిలి</a>
+          <a href="nagaladhinne.html" id="nagaladhinne-link">నాగలదిన్నె</a>
+          <a href="gurujala.html" id="gurujala-link">గురజాల</a>
+          <a href="rayachoti.html" id="rayachoti-link">రాయచోటి</a>
+          <a href="mittasomapuram.html" id="mittasomapuram-link">మిట్టసోమాపురం</a>
+          <a href="somalaguduru.html" id="somalaguduru-link">సోమలగుడురు</a>
+          <a href="ponakaladhinne.html" id="ponakaladhinne-link">పోనకలదిన్నె</a>
+          <a href="kanakaveedu.html" id="kanakaveedu-link">కనకవీడు</a>
+          <a href="kanakaveedupeta.html" id="kanakaveedupeta-link">కనకవీడు పేట</a>
+        </div>
+      </li>
+      <li>
+        <a onclick="toggleDropdown('gonegandla')">గోనెగండ్ల</a>
+        <div id="gonegandla" class="dropdown-content">
+          <a>గోనెగండ్ల గ్రామం</a>
+          <a>మాచనపల్లి</a>
+          <a>కంచిరల్ల</a>
+          <a>రామనగర</a>
+        </div>
+      </li>
+      <li>
+        <a onclick="toggleDropdown('yemiganur')">ఎమ్మిగనూరు</a>
+        <div id="yemiganur" class="dropdown-content">
+          <a>ఎమ్మిగనూరు గ్రామం</a>
+          <a>కోనదహల్</a>
+          <a>బెలగల</a>
+          <a>హలగాల</a>
+        </div>
+      </li>
+      <li>
+        <a onclick="toggleDropdown('yemiganurTown')">ఎమ్మిగనూరు టౌన్</a>
+        <div id="yemiganurTown" class="dropdown-content">
+          <a>1వ వార్డు</a>
+          <a>2వ వార్డు</a>
+          <a>3వ వార్డు</a>
+          <a>4వ వార్డు</a>
+          <a>5వ వార్డు</a>
+        </div>
+      </li>
+      <li>
+        <a onclick="toggleDropdown('sampradhindai')">సంప్రదించండి</a>
+        <div id="sampradhindai" class="dropdown-content">
+          <a>ఫోన్ నెంబర్</a>
+          <a>ఫ్యాక్స్</a>
+          <a>వాట్సాప్ </a>
+          <a>ఫేస్బుక్</a>
+        </div>
+      </li>
+      <li>
+        <a onclick="toggleDropdown('downloads')">అప్లోడ్ ఫొటోస్ </a>
+        <div id="downloads" class="dropdown-content">
+          <a>పాటలు</a>
+          <a href="upload.html" id="">ఫోటోలు</a>
+          <a>వీడియోలు</a>
 
         </div>
-        <h1>జై జై తెలుగుదేశం</h1>
-        <img src="cycle.jpg" alt="">
-    </header>
+      </li>
+    </ul>
+    <button id="mute-btn">🔊</button>
+    <button id="pause-btn">||</button>
 
-    <nav class="navbar">
+  </nav>
+  <!-- Content Sections -->
+  <div class="content">
+    <h1>ఎమ్మిగనూరు నియోజకవర్గ ఫోటో గ్యాలరీ</h1>
+    <img src="cbn.jpg" alt="నారా చంద్రబాబు నాయుడు">
+    <img src="lokesh.jpg" alt="నారా లోకేష్">
+    <img src="bvj1.jpg" alt="బివి జయనాగేశ్వర రెడ్డి">
+    <img src="desaicheruvuthoom.jpg" alt="desaicheruvuthoom.jpg">
+    <img src="cbn.jpg" alt="నారా చంద్రబాబు నాయుడు">
+    <img src="lokesh.jpg" alt="నారా లోకేష్">
+    <img src="bvj1.jpg" alt="బివి జయనాగేశ్వర రెడ్డి"> <img src="cbn.jpg" alt="చంద్రబాబు నాయుడు">
+    <img src="lokesh.jpg" alt="నారా లోకేష్">
+    <img src="bvpooja.jpg" alt="బివి జయనాగేశ్వర రెడ్డి"> <img src="cbn.jpg" alt="చంద్రబాబు నాయుడు">
+    <img src="bvcolony.jpg" alt="నారా లోకేష్">
+    <img src="govindhu.jpg" alt="బివి జయనాగేశ్వర రెడ్డి">
+    <img src="bvcolony.jpg" alt="నారా లోకేష్">
+    <img src="bvcolony.jpg" alt="నారా లోకేష్">
+    <img src="bvcolony.jpg" alt="నారా లోకేష్">
+    <img src="bvcolony.jpg" alt="నారా లోకేష్">
+    <img src="bvcolony.jpg" alt="నారా లోకేష్">
+    <img src="bvcolony.jpg" alt="నారా లోకేష్">
+  </div>
 
-        <button id="play-btn" class="audio-play-button" aria-label="Play background audio">▶︎</button>
-        <ul>
-            <li>
-                <a onclick="toggleDropdown('nandavaram')">నందవరం</a>
-                <div id="nandavaram" class="dropdown-content">
-                    <a href="nandavaram.html" id="nandavaram">నందవరం</a>
-                    <a href="machapuram.html" id="machapuram-link">మాచాపురం</a>
-                    <a href="pulachintha.html" id="pulachintha-link">పులచింత</a>
-                    <a href="ibrhimpuram.html" id="ibrhimpuram-link">ఇబ్రహీంపురం</a>
-                    <a href="ibrhimpuramkottala.html" id="ibrhimpuramkottala-link">ఇబ్రహీంపురం కొట్టాల</a>
-                    <a href="halaharvi.html" id="halaharvi-link">హాలహర్వి</a>
-                    <a href="dharmapuram.html" id="dharmapuram-link">ధర్మాపురం</a>
-                    <a href="hbapuram.html" id="hbapuram-link">హెచ్ బాపురం</a>
-                    <a href="jaggapuram.html" id="jaggapuram-link">జగ్గాపురం</a>
-                    <a href="mugathi.html" id="mugathi-link">ముగతి</a>
-                    <a href="nadhikairavadi.html" id="nadhikairavadi-link">నది కైరవడి</a>
-                    <a href="kothakairavadi.html" id="kothakairavadi-link">కొత్త కైరవడి</a>
-                    <a href="gangavaram.html" id="gangavaram-link">గంగవరం</a>
-                    <a href="chinnakothili.html" id="chinnakothili-link">చిన్నకొత్తిలి</a>
-                    <a href="joharapuram.html" id="joharapuram-link">జొహరాపురం</a>
-                    <a href="pedhakothili.html" id="pedhakothili-link">పెద్దకొత్తిలి</a>
-                    <a href="nagaladhinne.html" id="nagaladhinne-link">నాగలదిన్నె</a>
-                    <a href="gurujala.html" id="gurujala-link">గురజాల</a>
-                    <a href="rayachoti.html" id="rayachoti-link">రాయచోటి</a>
-                    <a href="mittasomapuram.html" id="mittasomapuram-link">మిట్టసోమాపురం</a>
-                    <a href="somalaguduru.html" id="somalaguduru-link">సోమలగుడురు</a>
-                    <a href="ponakaladhinne.html" id="ponakaladhinne-link">పోనకలదిన్నె</a>
-                    <a href="kanakaveedu.html" id="kanakaveedu-link">కనకవీడు</a>
-                    <a href="kanakaveedupeta.html" id="kanakaveedupeta-link">కనకవీడు పేట</a>
-                </div>
-            </li>
-            <li>
-                <a onclick="toggleDropdown('gonegandla')">గోనెగండ్ల</a>
-                <div id="gonegandla" class="dropdown-content">
-                    <a>గోనెగండ్ల గ్రామం</a>
-                    <a>మాచనపల్లి</a>
-                    <a>కంచిరల్ల</a>
-                    <a>రామనగర</a>
-                </div>
-            </li>
-            <li>
-                <a onclick="toggleDropdown('yemiganur')">ఎమ్మిగనూరు</a>
-                <div id="yemiganur" class="dropdown-content">
-                    <a>ఎమ్మిగనూరు గ్రామం</a>
-                    <a>కోనదహల్</a>
-                    <a>బెలగల</a>
-                    <a>హలగాల</a>
-                </div>
-            </li>
-            <li>
-                <a onclick="toggleDropdown('yemiganurTown')">ఎమ్మిగనూరు టౌన్</a>
-                <div id="yemiganurTown" class="dropdown-content">
-                    <a>1వ వార్డు</a>
-                    <a>2వ వార్డు</a>
-                    <a>3వ వార్డు</a>
-                    <a>4వ వార్డు</a>
-                    <a>5వ వార్డు</a>
-                </div>
-            </li>
-            <li>
-                <a onclick="toggleDropdown('sampradhindai')">సంప్రదించండి</a>
-                <div id="sampradhindai" class="dropdown-content">
-                    <a>ఫోన్ నెంబర్</a>
-                    <a>ఫ్యాక్స్</a>
-                    <a>వాట్సాప్ </a>
-                    <a>ఫేస్బుక్</a>
-                </div>
-            </li>
-            <li>
-                <a onclick="toggleDropdown('downloads')">డౌన్లోడ్స్</a>
-                <div id="downloads" class="dropdown-content">
-                    <a>పాటలు</a>
-                    <a>ఫోటోలు</a>
-                    <a>వీడియోలు</a>
 
-                </div>
-            </li>
-        </ul>
-        <button id="mute-btn">🔊</button>
-        <button id="pause-btn">||</button>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section1">
+        <h3>మా గురించి</h3>
+        <p>ఇది మా గ్రామ కుటుంబ బుక్లెట్ వెబ్‌సైట్. గ్రామ చరిత్ర, వ్యక్తులు, ఫోటోలు — అన్నీ ఒకచోట.</p>
+      </div>
 
-    </nav>
-    <!-- Content Sections -->
-    <div class="content">
-        <h1>ఎమ్మిగనూరు నియోజకవర్గ ఫోటో గ్యాలరీ</h1>
-        <img src="cbn.jpg" alt="నారా చంద్రబాబు నాయుడు">
-        <img src="lokesh.jpg" alt="నారా లోకేష్">
-        <img src="bvj1.jpg" alt="బివి జయనాగేశ్వర రెడ్డి">
-        <img src="desaicheruvuthoom.jpg" alt="desaicheruvuthoom.jpg">
-        <img src="cbn.jpg" alt="నారా చంద్రబాబు నాయుడు">
-        <img src="lokesh.jpg" alt="నారా లోకేష్">
-        <img src="bvj1.jpg" alt="బివి జయనాగేశ్వర రెడ్డి"> <img src="cbn.jpg" alt="చంద్రబాబు నాయుడు">
-        <img src="lokesh.jpg" alt="నారా లోకేష్">
-        <img src="bvpooja.jpg" alt="బివి జయనాగేశ్వర రెడ్డి"> <img src="cbn.jpg" alt="చంద్రబాబు నాయుడు">
-        <img src="bvcolony.jpg" alt="నారా లోకేష్">
-        <img src="govindhu.jpg" alt="బివి జయనాగేశ్వర రెడ్డి">
-        <img src="bvcolony.jpg" alt="నారా లోకేష్">
-        <img src="bvcolony.jpg" alt="నారా లోకేష్">
-        <img src="bvcolony.jpg" alt="నారా లోకేష్">
-        <img src="bvcolony.jpg" alt="నారా లోకేష్">
-        <img src="bvcolony.jpg" alt="నారా లోకేష్">
-        <img src="bvcolony.jpg" alt="నారా లోకేష్">
+      <div class="footer-section2">
+        <h3>ఉపయోగకరమైన లింకులు</h3>
+        <a href="#">మొదటి పేజీ</a>
+        <a href="#">సంప్రదించండి</a>
+        <a href="#">ఫోటో గ్యాలరీ</a>
+      </div>
+
+      <div class="footer-section3">
+        <h3>మమ్మల్ని సంప్రదించండి</h3>
+        <p>📍 బోయ నాగరాజు, హాలహర్వి గ్రామం, నందవరం, కర్నూలు జిల్లా</p>
+        <p>📞 81421 93789</p>
+        <p>✉️ info@example.com</p>
+      </div>
     </div>
 
+    <div class="footer-bottom">
+      © తెలుగు దేశం పార్టి కుటుంబ బుక్లెట్ | Designed by <b>Boya Nagaraju</b>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section1">
-                <h3>మా గురించి</h3>
-                <p>ఇది మా గ్రామ కుటుంబ బుక్లెట్ వెబ్‌సైట్. గ్రామ చరిత్ర, వ్యక్తులు, ఫోటోలు — అన్నీ ఒకచోట.</p>
-            </div>
-
-            <div class="footer-section2">
-                <h3>ఉపయోగకరమైన లింకులు</h3>
-                <a href="#">మొదటి పేజీ</a>
-                <a href="#">సంప్రదించండి</a>
-                <a href="#">ఫోటో గ్యాలరీ</a>
-            </div>
-
-            <div class="footer-section3">
-                <h3>మమ్మల్ని సంప్రదించండి</h3>
-                <p>📍 బోయ నాగరాజు, హాలహర్వి గ్రామం, నందవరం, కర్నూలు జిల్లా</p>
-                <p>📞 81421 93789</p>
-                <p>✉️ info@example.com</p>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            © తెలుగు దేశం పార్టి కుటుంబ బుక్లెట్ | Designed by <b>Boya Nagaraju</b>
-
-            <audio id="bg-audio" preload="auto" loop playsinline>
-                <source src="tdp1.mp3" type="audio/mpeg">
-                మీ బ్రౌజర్ ఆడియో ట్యాగ్ ని సపోర్ట్ చేయదు.
-            </audio>
-            <div id="controls" class="audio-controls" aria-hidden="true">
+      <audio id="bg-audio" preload="auto" loop playsinline>
+        <source src="tdp1.mp3" type="audio/mpeg">
+        మీ బ్రౌజర్ ఆడియో ట్యాగ్ ని సపోర్ట్ చేయదు.
+      </audio>
+      <div id="controls" class="audio-controls" aria-hidden="true">
 
 
-            </div>
-            <!-- fallback play బటన్ (మొబైల్ కోసం) -->
+      </div>
+      <!-- fallback play బటన్ (మొబైల్ కోసం) -->
 
 
-        </div>
+    </div>
 
-    </footer>
+  </footer>
 
-    <script>
-        /*(function(){
-          const audio = document.getElementById('bg-audio');
-          const playBtn = document.getElementById('play-btn');
-          const controls = document.getElementById('controls');
-          const pauseBtn = document.getElementById('pause-btn');
-          const muteBtn = document.getElementById('mute-btn');
-      
-          // ప్రాథమిక కొంత సెటప్
-          audio.volume = 0.8; // అవసరమైతే సర్దుకోండి (0.0 - 1.0)
-      
-          // పేజీ లోడ్ అయ్యగానే ప్లే చేయడానికి ప్రయత్నించు
-          window.addEventListener('DOMContentLoaded', () => {
-            // ప్రయత్నం
-            const p = audio.play();
-            if (p !== undefined) {
-              p.then(() => {
-                // ప్లే అయిపోయింది — UI controls చూపించొచ్చు
+  <script>
+    /*(function(){
+      const audio = document.getElementById('bg-audio');
+      const playBtn = document.getElementById('play-btn');
+      const controls = document.getElementById('controls');
+      const pauseBtn = document.getElementById('pause-btn');
+      const muteBtn = document.getElementById('mute-btn');
+  
+      // ప్రాథమిక కొంత సెటప్
+      audio.volume = 0.8; // అవసరమైతే సర్దుకోండి (0.0 - 1.0)
+  
+      // పేజీ లోడ్ అయ్యగానే ప్లే చేయడానికి ప్రయత్నించు
+      window.addEventListener('DOMContentLoaded', () => {
+        // ప్రయత్నం
+        const p = audio.play();
+        if (p !== undefined) {
+          p.then(() => {
+            // ప్లే అయిపోయింది — UI controls చూపించొచ్చు
+            controls.style.display = 'block';
+            controls.setAttribute('aria-hidden','false');
+          }).catch((err) => {
+            // బ్రౌజర్ autoplay బ్లాక్ చేసింది -> యూజర్ ఇంటరాక్షన్ కోరాలి
+            console.log('Autoplay blocked:', err);
+            showPlayButton();
+            // optional: అటైన సందర్భంలో ఒక టచ్/క్లిక్ వచ్చిన వెంటనే ప్లే ట్రై చేయడం
+            // add a one-time listener to try again on first user gesture
+            const one = () => {
+              audio.play().then(() => {
+                hidePlayButton();
                 controls.style.display = 'block';
                 controls.setAttribute('aria-hidden','false');
-              }).catch((err) => {
-                // బ్రౌజర్ autoplay బ్లాక్ చేసింది -> యూజర్ ఇంటరాక్షన్ కోరాలి
-                console.log('Autoplay blocked:', err);
+              }).catch(()=> {
+                // ఇంకా బ్లాక్ అయితే tetap show button
                 showPlayButton();
-                // optional: అటైన సందర్భంలో ఒక టచ్/క్లిక్ వచ్చిన వెంటనే ప్లే ట్రై చేయడం
-                // add a one-time listener to try again on first user gesture
-                const one = () => {
-                  audio.play().then(() => {
-                    hidePlayButton();
-                    controls.style.display = 'block';
-                    controls.setAttribute('aria-hidden','false');
-                  }).catch(()=> {
-                    // ఇంకా బ్లాక్ అయితే tetap show button
-                    showPlayButton();
-                  });
-                  document.removeEventListener('click', one);
-                  document.removeEventListener('touchstart', one);
-                };
-                document.addEventListener('click', one, {once: true});
-                document.addEventListener('touchstart', one, {once: true});
               });
-            } else {
-              // Promise undefined (బిజారక) — ఫాల్బ్యాక్
-              showPlayButton();
-            }
+              document.removeEventListener('click', one);
+              document.removeEventListener('touchstart', one);
+            };
+            document.addEventListener('click', one, {once: true});
+            document.addEventListener('touchstart', one, {once: true});
           });
-      
-          function showPlayButton() {
-            playBtn.classList.add('show');
-          }
-          function hidePlayButton() {
-            playBtn.classList.remove('show');
-          }
-      
-          // యూజర్ బటన్ తో ప్లే
-          playBtn.addEventListener('click', async () => {
-            try {
-              await audio.play();
-              hidePlayButton();
-              controls.style.display = 'block';
-              controls.setAttribute('aria-hidden','false');
-            } catch (e) {
-              console.warn('Play failed even after user click:', e);
-            }
-          });
-      
-          // pause / mute controls
-          pauseBtn.addEventListener('click', () => {
-            if (audio.paused) {
-              audio.play();
-              pauseBtn.textContent = '||';
-            } else {
-              audio.pause();
-              pauseBtn.textContent = '▶︎';
-            }
-          });
-      
-          muteBtn.addEventListener('click', () => {
-            audio.muted = !audio.muted;
-            muteBtn.textContent = audio.muted ? '🔈' : '🔊';
-          });
-      
-          // (ఐచ్ఛిక) పేజీ విడిచేప్పుడు ఆడియో ఆపడం
-          document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-              // backgroundలో గానీ, మీరు ఇష్టమైతే pause చేయవచ్చు
-              // audio.pause();
-            } else {
-              // తిరిగి వచ్చినప్పుడు ఆటోప్లే ప్రయత్నాలుంటే...
-            }
-          });
-      
-        })();*/
-    </script>
-    <script>
-        function toggleDropdown(id) {
-            // అన్ని డ్రాప్‌డౌన్‌లను మూసేయండి
-            document.querySelectorAll('.dropdown-content').forEach(drop => {
-                if (drop.id !== id) drop.style.display = 'none';
-            });
-
-            // ప్రస్తుత డ్రాప్‌డౌన్ తెరవడం/మూసేయడం
-            const dropdown = document.getElementById(id);
-            const isOpen = dropdown.style.display === 'block';
-            dropdown.style.display = isOpen ? 'none' : 'block';
-
-            // మౌస్ బయటకు వెళ్ళగానే మూసేయడం
-            if (!isOpen) {
-                // మొదట పాత లిసనర్ తీసేయండి
-                dropdown.onmouseleave = null;
-
-                // మౌస్ బయటకి వెళ్ళిన వెంటనే మూసేయండి
-                dropdown.onmouseleave = () => {
-                    dropdown.style.display = 'none';
-                };
-
-                // అలాగే parent <li> పైనుండి మౌస్ బయటికి వెళ్ళినప్పుడు కూడా మూసేయండి
-                const parentLi = dropdown.closest('li');
-                if (parentLi) {
-                    parentLi.onmouseleave = () => {
-                        dropdown.style.display = 'none';
-                    };
-                }
-            }
+        } else {
+          // Promise undefined (బిజారక) — ఫాల్బ్యాక్
+          showPlayButton();
         }
+      });
+  
+      function showPlayButton() {
+        playBtn.classList.add('show');
+      }
+      function hidePlayButton() {
+        playBtn.classList.remove('show');
+      }
+  
+      // యూజర్ బటన్ తో ప్లే
+      playBtn.addEventListener('click', async () => {
+        try {
+          await audio.play();
+          hidePlayButton();
+          controls.style.display = 'block';
+          controls.setAttribute('aria-hidden','false');
+        } catch (e) {
+          console.warn('Play failed even after user click:', e);
+        }
+      });
+  
+      // pause / mute controls
+      pauseBtn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          pauseBtn.textContent = '||';
+        } else {
+          audio.pause();
+          pauseBtn.textContent = '▶︎';
+        }
+      });
+  
+      muteBtn.addEventListener('click', () => {
+        audio.muted = !audio.muted;
+        muteBtn.textContent = audio.muted ? '🔈' : '🔊';
+      });
+  
+      // (ఐచ్ఛిక) పేజీ విడిచేప్పుడు ఆడియో ఆపడం
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          // backgroundలో గానీ, మీరు ఇష్టమైతే pause చేయవచ్చు
+          // audio.pause();
+        } else {
+          // తిరిగి వచ్చినప్పుడు ఆటోప్లే ప్రయత్నాలుంటే...
+        }
+      });
+  
+    })();*/
+  </script>
+  <script>
+    function toggleDropdown(id) {
+      // అన్ని డ్రాప్‌డౌన్‌లను మూసేయండి
+      document.querySelectorAll('.dropdown-content').forEach(drop => {
+        if (drop.id !== id) drop.style.display = 'none';
+      });
 
-        // బయట ఎక్కడైనా క్లిక్ చేసినప్పుడు కూడా మూసేయడం
-        window.addEventListener('click', function (event) {
-            if (!event.target.closest('.navbar')) {
-                document.querySelectorAll('.dropdown-content').forEach(drop => drop.style.display = 'none');
-            }
-        });
-    </script>
+      // ప్రస్తుత డ్రాప్‌డౌన్ తెరవడం/మూసేయడం
+      const dropdown = document.getElementById(id);
+      const isOpen = dropdown.style.display === 'block';
+      dropdown.style.display = isOpen ? 'none' : 'block';
 
-    <script>
+      // మౌస్ బయటకు వెళ్ళగానే మూసేయడం
+      if (!isOpen) {
+        // మొదట పాత లిసనర్ తీసేయండి
+        dropdown.onmouseleave = null;
 
-
-        // ప్రతి ఫోటోకు వివరాలు
-        const photoDetails = {
-            "cbn.jpg": "నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.",
-            "lokesh.jpg": "యువ నాయకుడు, మాజీ మంత్రి. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.",
-            "bvj1.jpg": "బీవీ జయనాగేశ్వర రెడ్డి — ఎమ్మిగనూరు నాయకుడు.",
-            "bvpooja.jpg": "బీవీ జయనాగేశ్వర రెడ్డి గారి పూజా కార్యక్రమం.",
-            "govindhu.jpg": "గోవిందు గారు — స్థానిక కార్యకర్త.",
-            "desaicheruvuthoom.jpg": "దేశైచెరువు తూమ్ — అందమైన గ్రామ దృశ్యం."
+        // మౌస్ బయటకి వెళ్ళిన వెంటనే మూసేయండి
+        dropdown.onmouseleave = () => {
+          dropdown.style.display = 'none';
         };
 
-        // popup card create చేయడం
-        const popup = document.createElement("div");
-        popup.classList.add("popup-card");
-        popup.innerHTML = `
+        // అలాగే parent <li> పైనుండి మౌస్ బయటికి వెళ్ళినప్పుడు కూడా మూసేయండి
+        const parentLi = dropdown.closest('li');
+        if (parentLi) {
+          parentLi.onmouseleave = () => {
+            dropdown.style.display = 'none';
+          };
+        }
+      }
+    }
+
+    // బయట ఎక్కడైనా క్లిక్ చేసినప్పుడు కూడా మూసేయడం
+    window.addEventListener('click', function (event) {
+      if (!event.target.closest('.navbar')) {
+        document.querySelectorAll('.dropdown-content').forEach(drop => drop.style.display = 'none');
+      }
+    });
+  </script>
+
+  <script>
+
+
+    // ప్రతి ఫోటోకు వివరాలు
+    const photoDetails = {
+      "cbn.jpg": "నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.",
+      "lokesh.jpg": "నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.నారా లోకేష్ — యువ నాయకుడు, మాజీ మంత్రి. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు. నారా చంద్రబాబు నాయుడు — తెలుగుదేశం పార్టీ జాతీయ అధ్యక్షుడు.",
+      "bvj1.jpg": "బీవీ జయనాగేశ్వర రెడ్డి — ఎమ్మిగనూరు నాయకుడు.",
+      "bvpooja.jpg": "బీవీ జయనాగేశ్వర రెడ్డి గారి పూజా కార్యక్రమం.",
+      "govindhu.jpg": "గోవిందు గారు — స్థానిక కార్యకర్త.",
+      "desaicheruvuthoom.jpg": "దేశైచెరువు తూమ్ — అందమైన గ్రామ దృశ్యం."
+    };
+
+    // popup card create చేయడం
+    const popup = document.createElement("div");
+    popup.classList.add("popup-card");
+    popup.innerHTML = `
     <div class="popup-inner">
       <button class="close-btn"></button>
       <h3>ఫోటో వివరాలు</h3>
       <p id="photoText"></p>
     </div>
   `;
-        document.body.appendChild(popup);
+    document.body.appendChild(popup);
 
-        const photoText = document.getElementById("photoText");
-        const closeBtn = popup.querySelector(".close-btn");
+    const photoText = document.getElementById("photoText");
+    const closeBtn = popup.querySelector(".close-btn");
 
-        // image click event
-        document.querySelectorAll(".content img").forEach(img => {
-            img.addEventListener("click", () => {
-                const fileName = img.src.split("/").pop();
-                const text = photoDetails[fileName] || "వివరాలు అందుబాటులో లేవు.";
-                photoText.textContent = text;
-                popup.classList.add("active");
-            });
-        });
+    // image click event
+    document.querySelectorAll(".content img").forEach(img => {
+      img.addEventListener("click", () => {
+        const fileName = img.src.split("/").pop();
+        const text = photoDetails[fileName] || "వివరాలు అందుబాటులో లేవు.";
+        photoText.textContent = text;
+        popup.classList.add("active");
+      });
+    });
 
-        // close popup
-        closeBtn.addEventListener("click", () => popup.classList.remove("active"));
-        popup.addEventListener("click", e => {
-            if (e.target === popup) popup.classList.remove("active");
-        });
+    // close popup
+    closeBtn.addEventListener("click", () => popup.classList.remove("active"));
+    popup.addEventListener("click", e => {
+      if (e.target === popup) popup.classList.remove("active");
+    });
 /*popup new style*/closeBtn < script >
-            function openPopup(src) {
-                document.getElementById("popupImg").src = src;
-                document.getElementById("popupBox").style.display = "flex";
-            }
+      function openPopup(src) {
+        document.getElementById("popupImg").src = src;
+        document.getElementById("popupBox").style.display = "flex";
+      }
 
 
-        function hidePopup() {
-            document.getElementById("popupBox").style.display = "none";
-        }
+    function hidePopup() {
+      document.getElementById("popupBox").style.display = "none";
+    }
 
 
-        function closePopup(event) {
-            if (event.target.id === "popupBox") hidePopup();
-        }
-    </script>
+    function closePopup(event) {
+      if (event.target.id === "popupBox") hidePopup();
+    }
+  </script>
 
 
 
-    </script>
-    <script>
-        function openPopup(src) {
-            document.getElementById("popupImg").src = src;
-            document.getElementById("popupBox").style.display = "flex";
-        }
+  </script>
+  <script>
+    function openPopup(src) {
+      document.getElementById("popupImg").src = src;
+      document.getElementById("popupBox").style.display = "flex";
+    }
 
 
-        function hidePopup() {
-            document.getElementById("popupBox").style.display = "none";
-        }
+    function hidePopup() {
+      document.getElementById("popupBox").style.display = "none";
+    }
 
 
-        function closePopup(event) {
-            if (event.target.id === "popupBox") hidePopup();
-        }
-    </script>
+    function closePopup(event) {
+      if (event.target.id === "popupBox") hidePopup();
+    }
+  </script>
 </body>
 
 </html>
