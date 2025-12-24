@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    font-family: "Times New Roman", serif;
+    background: #f4f4f4;
+}
+
+/* HEADER */
+.header {
+    background: #2c2c2c;
+    color: gold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+}
+
+.header-title {
+    text-align: center;
+    flex: 1;
+}
+
+.header-img,
+.header-logo {
+    width: 80px;
+    border: yellow solid 2px;
+    border-radius: 50%;
+    margin: 5px;
+    padding: 5px;
+
+}
+
+/* NAVBAR */
+.navbar {
+    background: #444;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-item button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.menu-item button:hover {
+    background: #666;
+    border-radius: 25px;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background: #333;
+    list-style: none;
+    padding: 0;
+    min-width: 150px;
+}
+
+.submenu li {
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.submenu li:hover {
+    background: #555;
+}
+
+/* CONTAINER */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    width: 260px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    width: 300px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+.footer {
+    background: #2c2c2c;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

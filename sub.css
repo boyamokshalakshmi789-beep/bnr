@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    position: relative;
+    width: 360px;
+    padding: 30px;
+    background: #1c1c1c;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.card::before,
+.card::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, cyan, magenta);
+    z-index: -1;
+}
+
+.card::after {
+    filter: blur(15px);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.input-box {
+    margin-bottom: 15px;
+}
+
+input[type="file"],
+textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    color: white;
+    padding: 8px 5px;
+    outline: none;
+}
+
+textarea {
+    height: 70px;
+    resize: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #ddd;
+}
+
+#preview img {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 5px;
+}

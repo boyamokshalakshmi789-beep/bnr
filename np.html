@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="te">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Classic Website</title>
+    <link rel="stylesheet" href="np.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <img src="partysymbol.jpg" class="header-img" alt="Photo">
+        <img src="BVM.jpg" class="header-img" alt="Photo">
+        <h1 class="header-title">జై తెలుగుదేశం</h1>
+        <img src="sntr.jpg" class="header-img" alt="Photo">
+        <img src="CBN_02.png" class="header-img" alt="Photo">
+        <img src="lokesh.jpg" class="header-img" alt="Photo">
+        <img src="Pall.jpeg" class="header-img" alt="Photo">
+        <img src="bvj1.jpg" class="header-img" alt="Photo">
+        <h1 class="header-title">జైజై తెలుగుదేశం</h1>
+        <img src="BVM.jpg" class="header-img" alt="Photo">
+        <img src="cycle.jpg" class="header-logo" alt="Logo">
+    </header>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <ul class="menu">
+            <li class="menu-item">
+                <button>Nandavaram</button>
+                <ul class="submenu">
+                    <li>Halaharvi</li>
+                    <li>Dharmapuram</li>
+                    <li>Jaggapuram</li>
+                    <li>H Bapuram</li>
+                </ul>
+            </li>
+
+            <li class="menu-item">
+                <button>Yemmiganur</button>
+                <ul class="submenu">
+                    <li>Service 1</li>
+                    <li>Service 2</li>
+                </ul>
+            </li>
+
+            <li class="menu-item">
+                <button>Gonegandla</button>
+                <ul class="submenu">
+                    <li>About</li>
+                    <li>Team</li>
+                </ul>
+            </li>
+
+            <li class="menu-item">
+                <button>Yemmiganur Town</button>
+                <ul class="submenu">
+                    <li>Contact</li>
+                    <li>Support</li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- CONTAINER -->
+    <section class="container">
+        <div class="card" onclick="openModal('BV colony వద్ద తెలుగుదేశం నాయకులు ')">
+            <img src="bvcolony.jpg">
+            <h3>Image One</h3>
+        </div>
+
+        <div class="card"
+            onclick="openModal('సూపర్ సిక్స్ కార్యక్రమంలో భాగంగా గడపగడపకు వెళ్లి ప్రచారం నిర్వహిస్తున్న హాలాహార్వి గ్రామ తెలుగుదేశం పార్టీ నాయకులు కార్యకర్తలు ')">
+            <img src="ha17.jpeg">
+            <h3>Image Two</h3>
+        </div>
+
+        <div class="card"
+            onclick="openModal('తెలుగుదేశం పార్టీలో చేరడానికి ఇంటి నుండి బయలుదేరిన జగన్నాథ రెడ్డి తోడుగా తెలుగుదేశం పార్టీ నాయకులు ')">
+            <img src="ha14.jpeg">
+            <h3>Image Three</h3>
+        </div>
+        <div class="card"
+            onclick="openModal('సూపర్ సిక్స్ కార్యక్రమంలో భాగంగా గడపగడపకు వెళ్లి ప్రచారం నిర్వహిస్తున్న హాలాహార్వి గ్రామ తెలుగుదేశం పార్టీ నాయకులు కార్యకర్తలు')">
+            <img src="ha18.jpeg">
+            <h3>Image Three</h3>
+        </div>
+        <div class="card"
+            onclick="openModal('సూపర్ సిక్స్ కార్యక్రమంలో భాగంగా గడపగడపకు వెళ్లి ప్రచారం నిర్వహిస్తున్న హాలాహార్వి గ్రామ తెలుగుదేశం పార్టీ నాయకులు కార్యకర్తలు')">
+            <img src="ha19.jpeg">
+            <h3>Image Three</h3>
+        </div>
+        <div class="card" onclick="openModal('జయ నాగేశ్వర్రెడ్డి తో తెలుగుదేశం పార్టీలో చేరిన నాయకులు, కార్యకర్తలు')">
+            <img src="ha20.jpeg">
+            <h3>Image Three</h3>
+        </div>
+        <div class="card" onclick="openModal('జయ నాగేశ్వర్రెడ్డి తో తెలుగుదేశం పార్టీలో చేరిన నాయకులు, కార్యకర్తలు')">
+            <img src="ha23.jpeg">
+            <h3>Image Three</h3>
+        </div>
+        <div class="card"
+            onclick="openModal('తెలుగుదేశం పార్టీలో చేరడానికి ర్యాలీగా వస్తున్న జగన్నాథరెడ్డి తోడుగా తెలుగుదేశం పార్టీ కార్యకర్తలు నాయకులు')">
+            <img src="ha15.jpeg">
+            <h3>Image Three</h3>
+        </div>
+        <div class="card"
+            onclick="openModal('దేశాయి చెరువులో జల హారతి కార్యక్రమంలో పూజలు నిర్వహిస్తున్న ఎంఎల్ఏ బివి జయ నాగేశ్వర్ రెడ్డి')">
+            <img src="bvpooja.jpg">
+            <h3>Image Three</h3>
+        </div>
+        <div class="card"
+            onclick="openModal('దేశాయి చెరువులో జల హారతి కార్యక్రమానికి విచ్చేసిన బీవీ జయ నాగేశ్వర్ రెడ్డిని పూలమాలలతో సన్మానిస్తున్న నాయకులు గోవిందు కాశీం')">
+            <img src="govindhu.jpg">
+            <h3>Image Three</h3>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <p id="modalText"></p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Designed by: Boya Nagaraju</p>
+        <p>Cell No: 81421 93789</p>
+        <p>Email: nagarajuboya789@gmail.com</p>
+        <p>© 2025 All Rights Reserved by Boya Nagaraju</p>
+    </footer>
+
+    <script src="np.js"></script>
+</body>
+
+</html>

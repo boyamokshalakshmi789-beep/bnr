@@ -2,245 +2,163 @@
 <html lang="te">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Political Party Website</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: #f4f4f4;
-        }
-
-        /* HEADER */
-        header {
-            background: #fff;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            border-bottom: 2px solid #ddd;
-        }
-
-        header img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        /* NAVBAR */
-        nav {
-            background: #004aad;
-            padding: 10px 0;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-        }
-
-        nav ul li {
-            position: relative;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        /* DROPDOWN */
-        nav ul li ul {
-            display: none;
-            position: absolute;
-            top: 30px;
-            background: #fff;
-            min-width: 150px;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        nav ul li ul li a {
-            display: block;
-            padding: 10px;
-            color: #000;
-        }
-
-        nav ul li ul li a:hover {
-            background: #eee;
-        }
-
-        nav ul li.active ul {
-            display: block;
-        }
-
-        /* BODY */
-        .container {
-            padding: 30px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: scale(1.1);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card h3 {
-            padding: 10px;
-            text-align: center;
-        }
-
-        /* POPUP */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .popup-content {
-            background: #fff;
-            padding: 20px;
-            width: 90%;
-            max-width: 400px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .popup-content img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .close {
-            margin-top: 10px;
-            background: red;
-            color: #fff;
-            border: none;
-            padding: 8px 15px;
-            cursor: pointer;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #222;
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-            margin-top: 20px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Website</title>
+    <link rel="stylesheet" href="np1.css">
 </head>
 
 <body>
 
-    <header>
-        <img src="BVM3.jpg" />
-        <img src="cbn2.jpg" />
-        <img src="lokesh.jpg" />
-        <img src="bvj2.jpg" />
-        <img src="bvj1.jpg" />
+    <!-- HEADER -->
+    <header class="header">
+        <img src="partysymbol.png" alt="Photo" class="header-img">
+        <img src="BVM.jpg" alt="Photo" class="header-img">
+        <h1 class="header-title">జై తెలుగుదేశం </h1>
+        <img src="sntr1.jpg" alt="Photo" class="header-img">
+        <img src="cbn02.jpg" alt="Photo" class="header-img">
+        <img src="lokesh.jpg" alt="Photo" class="header-img">
+        <img src="pall2.jpg" alt="Photo" class="header-img">
+        <h1 class="header-title">జైజై తెలుగుదేశం </h1>
+        <img src="bvj4.jpeg" alt="Photo" class="header-img">
+        <img src="BVM.jpg" alt="Photo" class="header-img">
+        <img src="cycle.jpg" alt="Logo" class="header-logo">
     </header>
 
-    <nav>
-        <ul>
-            <li><a onclick="toggleMenu(this)">Menu 1</a>
-                <ul>
-                    <li><a href="#">Item 1</a></li>
-                    <li><a href="#">Item 2</a></li>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+        <ul class="menu">
+            <li class="menu-item">
+                <button>నందవరం</button>
+                <ul class="submenu">
+                    <li> హాలహర్వి </li>
+                    <li>ధర్మాపురం</li>
+                    <li>జగ్గాపురం</li>
+                    <li>హెచ్ బాపురం</li>
                 </ul>
             </li>
-            <li><a onclick="toggleMenu(this)">Menu 2</a>
-                <ul>
-                    <li><a href="#">Item 1</a></li>
-                    <li><a href="#">Item 2</a></li>
+
+            <li class="menu-item">
+                <button>ఎమ్మిగనూర్</button>
+                <ul class="submenu">
+                    <li>Service 1</li>
+                    <li>Service 2</li>
                 </ul>
             </li>
-            <li><a onclick="toggleMenu(this)">Menu 3</a>
-                <ul>
-                    <li><a href="#">Item 1</a></li>
-                    <li><a href="#">Item 2</a></li>
+
+            <li class="menu-item">
+                <button>గోనెగండ్ల</button>
+                <ul class="submenu">
+                    <li>About</li>
+                    <li>Team</li>
                 </ul>
             </li>
-            <li><a onclick="toggleMenu(this)">Menu 4</a>
-                <ul>
-                    <li><a href="#">Item 1</a></li>
-                    <li><a href="#">Item 2</a></li>
+
+            <li class="menu-item">
+                <button>ఎమ్మిగనూర్ టౌన్ </button>
+                <ul class="submenu">
+                    <li>Contact</li>
+                    <li>Support</li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <button>లాగిన్ </button>
+                <ul class="submenu">
+                    <li>
+                        <a href="ppp.html" id="nandavaram">సైన్ అప్ </a>
+                    </li>
+                    <li><a href="pp.html" id="nandavaram"> లాగిన్ </a></li>
+                    <li><a href="sub.html" id="nandavaram">ఫోటో అప్లోడ్ </a> </li>
                 </ul>
             </li>
         </ul>
     </nav>
 
-    <div class="container">
-        <div class="card" onclick="openPopup('మాచపురంలో బివి ప్రచార రథం పై కాసిం ')">
-            <img src="ha3.jpg" />
-            <h3>Photo 1</h3>
+    <!-- CONTAINER -->
+    <h2 class="container-title">ఎమ్మిగనూరు నియోజకవర్గ తెలుగుదేశం పార్టి ఫోటో గ్యాలరి </h2>
+    <section class="container">
+        <div class="card"
+            onclick="openModal('తెలుగుదేశం పార్టీ సూపర్ సిక్స్ కార్యక్రమం గురించి ఇంటింటి ప్రచారం చేస్తున్న నాయకులు కార్యకర్తలు')">
+            <img src="ha17.jpeg">
         </div>
-        <div class="card" onclick="openPopup('బివి కలని వద్ద నాయకులు ')">
-            <img src="bvcolony.jpg" />
-            <h3>Photo 2</h3>
+
+        <div class="card"
+            onclick="openModal('తెలుగుదేశం పార్టీ సూపర్ సిక్స్ కార్యక్రమం గురించి ఇంటింటి ప్రచారం చేస్తున్న యూనిట్ ఇంచార్జ్ నాగరాజు బూత్ ఇన్చార్జి రాఘవేంద్ర')">
+            <img src="ha18.jpeg">
         </div>
-        <div class="card" onclick="openPopup('మహానాడు లో నాయకులు')">
-            <img src="ha5.jpg" />
-            <h3>Photo 3</h3>
+
+        <div class="card"
+            onclick="openModal('తెలుగుదేశం పార్టీలో చేరి బీ వి జయ నాగేశ్వర్రెడ్డి తో ఫోటోలు దిగుతున్న నాయకులు కార్యకర్తలు')">
+            <img src="ha27.jpeg">
+        </div>
+        <div class="card"
+            onclick="openModal('తెలుగుదేశం పార్టీలో చేరి బీ వి జయ నాగేశ్వర్రెడ్డి తో ఫోటోలు దిగుతున్న నాయకులు కార్యకర్తలు')">
+            <img src="ha25.jpeg">
+
+        </div>
+
+        <div class="card"
+            onclick="openModal('తెలుగుదేశం పార్టీలో చేరి బీ వి జయ నాగేశ్వర్రెడ్డి తో ఫోటోలు దిగుతున్న నాయకులు కార్యకర్తలు')">
+            <img src="ha20.jpeg">
+
+        </div>
+
+        <div class="card"
+            onclick="openModal('తెలుగుదేశం పార్టీలో చేరడానికి ఇంటి నుండి బయలుదేరిన జగన్నాథ్ రెడ్డి తోడుగా టిడిపి నాయకులు కార్యకర్తలు')">
+            <img src="ha14.jpeg">
+
+        </div>
+        <div class="card"
+            onclick="openModal('తెలుగుదేశం పార్టీలో చేరి బీ వి జయ నాగేశ్వర్రెడ్డి తో ఫోటోలు దిగుతున్న నాయకులు కార్యకర్తలు')">
+            <img src="ha24.jpeg">
+
+        </div>
+        <div class="card"
+            onclick="openModal('తెలుగుదేశం పార్టీలో చేరి బీ వి జయ నాగేశ్వర్రెడ్డి తో ఫోటోలు దిగుతున్న నాయకులు కార్యకర్తలు')">
+            <img src="ha23.jpeg">
+
+        </div>
+        <div class="card"
+            onclick="openModal('నష్టపోయిన రైతు పొలంలో మిర్చి దిగుబడిని పరిశీలిస్తున్న ఎమ్మెల్యే బీవీ జయ నాగేశ్వర్ రెడ్డి')">
+            <img src="ha9.jpg">
+        </div>
+        <div class="card"
+            onclick="openModal('బీవీ కాలనీలో ఏర్పాటుచేసిన బివి కాలనీ బోర్డు కు కొత్త రంగులు వేయించిన టిడిపి నాయకులు కార్యకర్తలు')">
+            <img src="bvcolony.jpg">
+        </div>
+        <div class="card"
+            onclick="openModal('దేశాయి చెరువులో జల హారతి కార్యక్రమానికి విచ్చేసిన ఎమ్మెల్యే జయ నాగేశ్వర్ రెడ్డిని పూలమాలలతో సన్మానిస్తున్న నాయకులు గోవిందు కాశీం')">
+            <img src="govindhu.jpg">
+        </div>
+        <div class="card"
+            onclick="openModal('దేశాయి చెరువులో జల హారతి పూజా కార్యక్రమం నిర్వహిస్తున్న ఎమ్మెల్యే జయ నాగేశ్వర్ రెడ్డి టిడిపి నాయకులు కాశీము ఉరుకుందు నాయకులు, కార్యకర్తలు')">
+            <img src="bvpooja.jpg">
+        </div>
+        <div class="card"
+            onclick="openModal('తెలుగుదేశం పార్టీ సూపర్ సిక్స్ కార్యక్రమం గురించి ఇంటింటి ప్రచారం చేస్తున్న జనసేన నాయకుడు నాగేంద్ర బూత్ ఇన్చార్జి హరిక్రిష్ణ')">
+            <img src="ha2.jpg">
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <p id="modalText"></p>
         </div>
     </div>
 
-    <div class="popup" id="popup">
-        <div class="popup-content">
-            <p id="popupText"></p>
-            <button class="close" onclick="closePopup()">Close</button>
-        </div>
-    </div>
-
-    <footer>
-        © 2025 Political Party Website
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Designed by: Boya Nagaraju</p>
+        <p>Email: nagarajuboya789@gmail.com</p>
+        <p>Cell No: 81421 93789</p>
+        <p>© 2025 All Rights Reserved by Boya Nagaraju</p>
     </footer>
 
-    <script>
-        function toggleMenu(el) {
-            document.querySelectorAll('nav ul li').forEach(li => li.classList.remove('active'));
-            el.parentElement.classList.toggle('active');
-        }
-        function openPopup(text) {
-            document.getElementById('popupText').innerText = text;
-            document.getElementById('popup').style.display = 'flex';
-        }
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
-    </script>
-
+    <script src="np1.js"></script>
 </body>
 
 </html>

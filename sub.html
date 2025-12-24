@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="te">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Photo Upload</title>
+    <link rel="stylesheet" href="sub.css">
+</head>
+
+<body>
+
+    <div class="card">
+        <h2>Photo Submit</h2>
+
+        <form id="uploadForm">
+            <div class="input-box">
+                <input type="file" id="file" accept=".jpg,.jpeg,.png,.pdf" required>
+            </div>
+
+            <div id="preview"></div>
+
+            <div class="input-box">
+                <textarea id="info" placeholder="ఫోటోకు సంబంధించిన సమాచారం ఇవ్వండి..." required></textarea>
+            </div>
+
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    <script src="sub.js"></script>
+</body>
+
+</html>
