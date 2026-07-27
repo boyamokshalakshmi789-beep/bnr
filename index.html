@@ -4,166 +4,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classic Website</title>
-    <link rel="stylesheet" href="np1.css">
+    <title> Website</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <img src="partysymbol.png" alt="Photo" class="header-img">
-        <img src="BVM.jpg" alt="Photo" class="header-img">
-        <h1 class="header-title">జై తెలుగుదేశం </h1>
-        <img src="sntr1.jpg" alt="Photo" class="header-img">
-        <img src="cbn02.jpg" alt="Photo" class="header-img">
-        <img src="lokesh.jpg" alt="Photo" class="header-img">
-        <img src="pall2.jpg" alt="Photo" class="header-img">
-        <h1 class="header-title">జైజై తెలుగుదేశం </h1>
-        <img src="bvj4.jpeg" alt="Photo" class="header-img">
-        <img src="BVM.jpg" alt="Photo" class="header-img">
-        <img src="cycle.jpg" alt="Logo" class="header-logo">
+    <header>
+        <div class="header-box">
+            <img class="header-img" src="sntr.jpg">
+        </div>
+        <div class="header-box">
+            <img class="header-img" src="BVM1.jpg">
+        </div>
+        <div class="header-box">
+            <img class="header-img" src="cbn.jpg" alt="">
+        </div>
+        <div class="header-box">
+            <img class="header-img" src="lokesh.jpg" alt="">
+        </div>
+        <div class="header-box">
+            <img class="header-img" src="Pall.jpeg" alt="">
+        </div>
+        <h1> జై తెలుగుదేశం జై జై తెలుగుదేశం</h1>
+        <div class="header-box">
+            <img class="header-img" src="bvj1.jpg" alt="">
+        </div>
+        <div class="header-box">
+            <img class="header-img" src="cycle.jpg" alt="">
+        </div>
     </header>
-
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-        <ul class="menu">
+    <nav>
+        <ul id="menu">
             <li class="menu-item">
-                <button>నందవరం</button>
-                <ul class="submenu">
-                    <li> హాలహర్వి </li>
-                    <li>ధర్మాపురం</li>
-                    <li>జగ్గాపురం</li>
-                    <li>హెచ్ బాపురం</li>
-                </ul>
-            </li>
-
-            <li class="menu-item">
-                <button>ఎమ్మిగనూర్</button>
-                <ul class="submenu">
-                    <li>Service 1</li>
-                    <li>Service 2</li>
-                </ul>
-            </li>
-
-            <li class="menu-item">
-                <button>గోనెగండ్ల</button>
-                <ul class="submenu">
-                    <li>About</li>
-                    <li>Team</li>
-                </ul>
-            </li>
-
-            <li class="menu-item">
-                <button>ఎమ్మిగనూర్ టౌన్ </button>
-                <ul class="submenu">
-                    <li>Contact</li>
-                    <li>Support</li>
-                </ul>
+                <button onclick="showList(this,'ఎమ్మిగనూరు టౌన్')">ఎమ్మిగనూరు టౌన్</button>
             </li>
             <li class="menu-item">
-                <button>లాగిన్ </button>
-                <ul class="submenu">
-                    <li>
-                        <a href="ppp.html" id="nandavaram">సైన్ అప్ </a>
-                    </li>
-                    <li><a href="pp.html" id="nandavaram"> లాగిన్ </a></li>
-                    <li><a href="sub.html" id="nandavaram">ఫోటో అప్లోడ్ </a> </li>
-                </ul>
+                <button onclick="showList(this,'ఎమ్మిగనూరు రూరల్')">ఎమ్మిగనూరు రూరల్</button>
+            </li>
+            <li class="menu-item">
+                <button onclick="showList(this,'గోనెగండ్ల మండలం')">గోనెగండ్ల మండలం</button>
+            </li>
+            <li class="menu-item">
+                <button onclick="showList(this,'నందవరం మండలం')">నందవరం మండలం</button>
+            </li>
+            <li class="menu-item">
+                <button onclick="showList(this,'సంప్రదించండి')">📞 సంప్రదించండి 📧</button>
             </li>
         </ul>
     </nav>
+    <div class="news-ticker">
+        <span class="news-title">📰 BREAKING NEWS</span>
 
-    <!-- CONTAINER -->
-    <h2 class="container-title">ఎమ్మిగనూరు నియోజకవర్గ తెలుగుదేశం పార్టి ఫోటో గ్యాలరి </h2>
-    <section class="container">
-        <div class="card"
-            onclick="openModal('తెలుగుదేశం పార్టీ సూపర్ సిక్స్ కార్యక్రమం గురించి ఇంటింటి ప్రచారం చేస్తున్న నాయకులు కార్యకర్తలు')">
-            <img src="ha17.jpeg">
-        </div>
+        <div class="news-scroll">
+            <marquee behavior="scroll" direction="left" scrollamount="10">
 
-        <div class="card"
-            onclick="openModal('తెలుగుదేశం పార్టీ సూపర్ సిక్స్ కార్యక్రమం గురించి ఇంటింటి ప్రచారం చేస్తున్న యూనిట్ ఇంచార్జ్ నాగరాజు బూత్ ఇన్చార్జి రాఘవేంద్ర')">
-            <img src="ha18.jpeg">
-        </div>
+                📢 తెలుగుదేశం పార్టీ తాజా వార్తలు |
+                🎉 కొత్త అభివృద్ధి కార్యక్రమాలు ప్రారంభం |
+                🚜 రైతులకు ప్రభుత్వం నుంచి కొత్త పథకాలు |
+                🏛️ ఎమ్మిగనూరు నియోజకవర్గ తాజా సమాచారం |
+                📢 పార్టీ సమావేశం ఆదివారం ఉదయం 10 గంటలకు |
+                తల్లికి వందనం నిధులను ప్రభుత్వము 22.07.2026 తేదీన తల్లుల ఖాతాలో 13,000 రూపాయలు జమ చేయడం జరిగింది.
 
-        <div class="card"
-            onclick="openModal('తెలుగుదేశం పార్టీలో చేరి బీ వి జయ నాగేశ్వర్రెడ్డి తో ఫోటోలు దిగుతున్న నాయకులు కార్యకర్తలు')">
-            <img src="ha27.jpeg">
-        </div>
-        <div class="card"
-            onclick="openModal('తెలుగుదేశం పార్టీలో చేరి బీ వి జయ నాగేశ్వర్రెడ్డి తో ఫోటోలు దిగుతున్న నాయకులు కార్యకర్తలు')">
-            <img src="ha25.jpeg">
-
-        </div>
-
-        <div class="card"
-            onclick="openModal('తెలుగుదేశం పార్టీలో చేరి బీ వి జయ నాగేశ్వర్రెడ్డి తో ఫోటోలు దిగుతున్న నాయకులు కార్యకర్తలు')">
-            <img src="ha20.jpeg">
-
-        </div>
-
-        <div class="card"
-            onclick="openModal('తెలుగుదేశం పార్టీలో చేరడానికి ఇంటి నుండి బయలుదేరిన జగన్నాథ్ రెడ్డి తోడుగా టిడిపి నాయకులు కార్యకర్తలు')">
-            <img src="ha14.jpeg">
-
-        </div>
-        <div class="card"
-            onclick="openModal('తెలుగుదేశం పార్టీలో చేరి బీ వి జయ నాగేశ్వర్రెడ్డి తో ఫోటోలు దిగుతున్న నాయకులు కార్యకర్తలు')">
-            <img src="ha24.jpeg">
-
-        </div>
-        <div class="card"
-            onclick="openModal('తెలుగుదేశం పార్టీలో చేరి బీ వి జయ నాగేశ్వర్రెడ్డి తో ఫోటోలు దిగుతున్న నాయకులు కార్యకర్తలు')">
-            <img src="ha23.jpeg">
-
-        </div>
-        <div class="card"
-            onclick="openModal('నష్టపోయిన రైతు పొలంలో మిర్చి దిగుబడిని పరిశీలిస్తున్న ఎమ్మెల్యే బీవీ జయ నాగేశ్వర్ రెడ్డి')">
-            <img src="ha9.jpg">
-        </div>
-        <div class="card"
-            onclick="openModal('బీవీ కాలనీలో ఏర్పాటుచేసిన బివి కాలనీ బోర్డు కు కొత్త రంగులు వేయించిన టిడిపి నాయకులు కార్యకర్తలు')">
-            <img src="bvcolony.jpg">
-        </div>
-        <div class="card"
-            onclick="openModal('దేశాయి చెరువులో జల హారతి కార్యక్రమానికి విచ్చేసిన ఎమ్మెల్యే జయ నాగేశ్వర్ రెడ్డిని పూలమాలలతో సన్మానిస్తున్న నాయకులు గోవిందు కాశీం')">
-            <img src="govindhu.jpg">
-        </div>
-        <div class="card"
-            onclick="openModal('దేశాయి చెరువులో జల హారతి పూజా కార్యక్రమం నిర్వహిస్తున్న ఎమ్మెల్యే జయ నాగేశ్వర్ రెడ్డి టిడిపి నాయకులు కాశీము ఉరుకుందు నాయకులు, కార్యకర్తలు')">
-            <img src="bvpooja.jpg">
-        </div>
-        <div class="card"
-            onclick="openModal('తెలుగుదేశం పార్టీ సూపర్ సిక్స్ కార్యక్రమం గురించి ఇంటింటి ప్రచారం చేస్తున్న జనసేన నాయకుడు నాగేంద్ర బూత్ ఇన్చార్జి హరిక్రిష్ణ')">
-            <img src="ha2.jpg">
-        </div>
-        <div class="card"
-            onclick="openModal('తెలుగుదేశం పార్టీ సూపర్ సిక్స్ కార్యక్రమం గురించి ఇంటింటి ప్రచారం చేస్తున్న జనసేన నాయకుడు నాగేంద్ర బూత్ ఇన్చార్జి హరిక్రిష్ణ')">
-            <img src="ha1.jpg">
-        </div>
-    </section>
-
-    <!-- MODAL -->
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">×</span>
-            <p id="modalText"></p>
+            </marquee>
         </div>
     </div>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p>Designed by: Boya Nagaraju</p>
-        <p>Email: nagarajuboya789@gmail.com</p>
-        <p>Cell No: 81421 93789</p>
-        <p>© 2025 All Rights Reserved by Boya Nagaraju</p>
+    <div class="slider">
+        <div class="slides">
+            <img src="chi1.jpg">
+            <img src="ha20.jpeg">
+            <img src="ha19.jpeg">
+            <img src="govindhu4.jpg">
+            <img src="ha19.jpeg">
+        </div>
+    </div>
+    <section class="gallery">
+        <div class="card" onclick="details(0)">
+            <img src="ha19.jpeg">
+            <h3>Nature1</h3>
+        </div>
+        <div class=" card" onclick="details(1)">
+            <img src="ha27.jpeg">
+            <h3>Bird2</h3>
+        </div>
+        <div class="card" onclick="details(2)">
+            <img src="ha26.jpeg">
+            <h3>Mountain3</h3>
+        </div>
+        <div class="card" onclick="details(3)">
+            <img src="4.JPG">
+            <h3>Sea4</h3>
+        </div>
+        <div class="card" onclick="details(4)">
+            <img src="govindhu4.jpg">
+            <h3>Flowers5</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha25.jpeg">
+            <h3>Bird6</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha3.jpg">
+            <h3>Bird7</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha14.jpeg">
+            <h3>Bird8</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha15.jpeg">
+            <h3>Bird9</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha16.jpeg">
+            <h3>Bird10</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha17.jpeg">
+            <h3>Bird11</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha17.jpeg">
+            <h3>Bird12</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="bvcolony.jpg">
+            <h3>Bird13</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha2.jpg">
+            <h3>Bird14</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha20.jpeg">
+            <h3>Bird15</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha21.jpeg">
+            <h3>Bird16</h3>
+        </div>
+    </section>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <img id="popImg">
+            <h2 id="popTitle"></h2>
+            <p id="popText"></p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-box">
+            <h2>About Website</h2>
+            <p>
+                ఈ వెబ్‌సైట్ HTML, CSS మరియు JavaScript ఉపయోగించి రూపొందించబడింది.
+                ఇది అందమైన Gallery మరియు Navigation Menu ను కలిగి ఉంటుంది.
+            </p>
+        </div>
+        <div class="footer-box">
+            <h2>Contact</h2>
+            <p>
+                📧 Email : nagarajuboya789@gmail.com
+                <br>
+                📞 Phone : +91 8142193789
+                <br>
+                📍 Andhra Pradesh
+            </p>
+        </div>
     </footer>
-
-    <script src="np1.js"></script>
+    <script src="index.js"></script>
 </body>
-
 
 </html>
