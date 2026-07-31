@@ -1,693 +1,845 @@
 <!DOCTYPE html>
 <html lang="te">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ఇమేజ్ సమాచారం గ్యాలరీ</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Noto Sans Telugu", sans-serif;
-      background: #f5f5f5;
-      color: #222;
-      line-height: 1.5;
-    }
-
-    /* ---------- HEADER ---------- */
-     header {
-      padding-bottom: 10px;
-      padding-top: 10px;
-    background: linear-gradient(90deg, #ffcc80, #ffb74d);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    animation: h1 10s ease-in infinite;
-  }
-  @keyframes h1 {
- 0% {color: #555;}
-50% {color:  white;}
-100%{color: #555;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Website</title>
+   <style>
+     * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
-  .leaders {
+
+body {
+    background: #555;
+}
+
+/* Header */
+
+header {
+    height: auto;
+    background: yellow;
+    color: red;
+    text-align: center;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 5px 10px gray;
     display: flex;
-    gap: 15px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: sticky;
+}
+
+/*animation*/
+.header-box {
+    position: relative;
+    width: 85px;
+    height: 85px;
+    margin: 10px;
+    border-radius: 50%;
+    display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  header img {
-    height: 150px;
-    border-radius: 20px;
-  }
-
-  .leaders img {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    border: 4px solid #fff;
-    box-shadow: 0 0 10px #555;
-    object-fit: cover;
-    animation: img 2s ease infinite;
-  }
- @keyframes img {
-  0%{border: 4px solid #fff;}
-  30%{border: 4px solid red;}
-  60%{border: 4px solid greenyellow;}
-  100%{border: 4px solid #fff;}
+    overflow: hidden;
 }
 
-    /* ---------- NAVIGATION ---------- */
-    nav {
-    width: 100%;
+.header-box::before {
+    content: "";
+    position: absolute;
+    width: 140%;
+    height: 140%;
+    background: conic-gradient(red,
+            yellow,
+            lime,
+            cyan,
+            blue,
+            magenta,
+            red);
+    animation: rotateBorder 2s linear infinite;
+}
+
+.header-img {
     position: relative;
-    top: 0;
-    z-index: 1000;
-    background: maroon;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, .2);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 1;
 }
-    @media (max-width:700px) {
+
+@keyframes rotateBorder {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Navigation */
+.menu-toggle {
+    display: none;
+}
+
+.menu-toggle {
+    display: block;
+    color: #fff;
+    font-size: 32px;
+    text-align: right;
+    padding: 12px 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+nav {
+
+    position: static;
+    top: auto;
+    box-shadow: none;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.menu-item button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .3s;
+
+}
+
+@media (max-width:700px) {
     nav {
         position: relative;
         top: 0;
     }
 }
-  .nav h1{
-    text-align: center;
-  }
-    /* ---------- GALLERY ---------- */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
 
-    .card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-align: center;
-    }
+/* List */
 
-    .card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-    }
-
-    .card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 10px 10px 0 0;
-    }
-
-    .card .label {
-      padding: 8px;
-      font-weight: 600;
-    }
-
-    /* ---------- MODAL ---------- */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0, 0, 0, 0.45);
-      z-index: 1000;
-      padding: 20px;
-    }
-
-    .modal {
-      max-width: 950px;
-      width: 100%;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 5px 5px 20px 20px yellow;
-      overflow: hidden;
-      display: grid;
-     /* grid-template-columns: 1fr 1fr;*/
-    }
-
-    .modal img {
-      width: 50%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .m-info {
-      padding: 16px;
-    }
-
-    .m-info h2 {
-      color: #004aad;
-      margin-bottom: 8px;
-    }
-
-    .m-info p {
-      color: #444;
-      margin-right: 10px;
-      margin-bottom: 10px;
-    }
-
-    .meta {
-      font-size: 13px;
-      color: #777;
-    }
-
-    .close-btn {
-      position: absolute;
-      right: 18px;
-      top: 14px;
-      background: white;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      border-radius: 50%;
-      width: 32px;
-      height: 32px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  header img {
-    height: 80px;
-  }
-
-  .leaders {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .navbar ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .navbar a {
-    display: block;
-    text-align: center;
-  }
-
-  }
-
-    /*footer*/
-
-
-    footer {
-    background: linear-gradient(45deg, #222, #444);
-    color: #fff;
-    font-family: "Noto Sans Telugu", sans-serif;
-    padding-top: 20px;
-  }
-
-  .footer-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    text-align: center;
+#listBox {
+    display: none;
+    width: 90%;
+    margin: 20px auto;
+    background: white;
     padding: 20px;
-  }
-
-  .footer-container div {
-    flex: 1;
-    min-width: 250px;
-    margin: 10px;
-  }
-
-  .footer-container h3 {
-    color: #ffcc00;
-    margin-bottom: 10px;
-  }
-
-  .footer-container p {
-    line-height: 1.6;
-  }
-
-  .footer-section2 a {
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    margin: 5px 0;
-    transition: 0.3s;
-  }
-
-  .footer-section2 a:hover {
-    color: #ffcc00;
-  }
-
-  .footer-bottom {
-    text-align: center;
-    background: #111;
-    padding: 10px;
-    border-top: 1px solid #555;
-    font-size: 14px;
-  }
-
-  @media (max-width: 600px) {
-    .footer-container {
-      flex-direction: column;
-      text-align: center;
-    }
-  }
-  </style>
-</head>
-<body>
-  <!-- ---------- HEADER ---------- -->
-  <header>
-  <img src="partysymbol.png" alt="పార్టీ లోగో">
-  
-    <h1>జై తెలుగుదేశం </h1>
-  <div class="leaders">
-    <img src="BVM3.jpg" alt="బీవీ జయనాగేశ్వర రెడ్డి">
-    <img src="cbn.jpg" alt="నారా చంద్రబాబు నాయుడు">
-    <img src="lokesh.jpg" alt="నారా లోకేష్">
-    <img src="bvj1.jpg" alt="బీవీ జయనాగేశ్వర రెడ్డి">
-       
-  </div>
-  <h1>జై జై తెలుగుదేశం</h1>
-  <img src="cycle.jpg" alt="సైకిల్ లోగో">
-</header>
-
-  <!-- ---------- NAVIGATION ---------- -->
-
-    <button id="play-btn" class="audio-play-button" aria-label="Play background audio">▶︎</button>
-    <button id="mute-btn">🔊</button>
-    <button id="pause-btn">||</button>
-    <div class="nav">
-      <h1>హాలహర్వి గ్రామం లో తెలుగుదేశం పాలనలో జరిగిన అభివృద్ధి ఫోటో గ్యాలరి </h1>
-    </div>
-  <!-- ---------- IMAGE GALLERY ---------- -->
-  <div class="gallery" id="gallery">
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-             అందమైన గ్రామం..." 
-         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
-         data-img="bvcolony.jpg">
-      <img src="bvj1.jpg" alt="హాలహర్వి గ్రామం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
-         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
-         data-img="https://picsum.photos/id/1018/800/600">
-      <img src="BVM1.jpg" alt="హాలహర్వి గ్రామం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
-         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
-         data-img="https://picsum.photos/id/1018/800/600">
-      <img src="desaicheruvuthoom.jpg" alt="హాలహర్వి గ్రామం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-    
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం...
-            హాలహర్వి గ్రామం నందవరం మండలంలో ఒక అందమైన గ్రామం..." 
-         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
-         data-img="https://picsum.photos/id/1018/800/600">
-      <img src="bvcolony.jpg" alt="హాలహర్వి గ్రామం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
-         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
-         data-img="https://picsum.photos/id/1018/800/600">
-      <img src="bvcolony.jpg" alt="హాలహర్వి గ్రామం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
-         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
-         data-img="https://picsum.photos/id/1018/800/600">
-      <img src="patameedhakaluva.jpg" alt="హాలహర్వి గ్రామం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
-         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
-         data-img="https://picsum.photos/id/1018/800/600">
-      <img src="page1.jpg" alt="హాలహర్వి గ్రామం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
-         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
-         data-img="https://picsum.photos/id/1018/800/600">
-      <img src="page3.jpg" alt="హాలహర్వి గ్రామం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
-         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
-         data-img="https://picsum.photos/id/1018/800/600">
-      <img src="endpage.jpg" alt="హాలహర్వి గ్రామం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
-         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
-         data-img="https://picsum.photos/id/1018/800/600">
-      <img src="endpage.jpg" alt="హాలహర్వి గ్రామం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
-         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
-         data-img="https://picsum.photos/id/1018/800/600">
-      <img src="endpage.jpg" alt="హాలహర్వి గ్రామం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
-         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
-         data-img="https://picsum.photos/id/1018/800/600">
-      <img src="endpage.jpg" alt="హాలహర్వి గ్రామం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
-         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
-         data-img="https://picsum.photos/id/1018/800/600">
-      <img src="endpage.jpg" alt="హాలహర్వి గ్రామం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
-         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
-         data-img="https://picsum.photos/id/1018/800/600">
-      <img src="endpage.jpg" alt="హాలహర్వి గ్రామం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="కృష్ణా నదిపై ప్రసిద్ధ జలాశయం. చుట్టూ ప్రకృతి అందాలు." 
-         data-meta="ఆంధ్రప్రదేశ్ • 1978" 
-         data-img="https://picsum.photos/id/1018/800/600">
-      <img src="endpage.jpg" alt="హాలహర్వి గ్రామం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="ప్రకృతి మధ్యలో ఉన్న ఆర్గానిక్ పంటల తోట." 
-         data-meta="సీజన్: జూలై–సెప్టెంబర్" 
-         data-img="cbn.jpg">
-      <img src="cbn.jpg" alt="పచ్చటి తోట">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-
-    <div class="card" 
-         data-title="హాలహర్వి గ్రామం" 
-         data-desc="ప్రతి ఉదయం 6 నుంచి రాత్రి 9 వరకు తెరచి ఉంటుంది." 
-         data-meta="స్థానం: గ్రామం మధ్యలో" 
-         data-img="https://picsum.photos/id/1060/800/600">
-      <img src="BVM3.jpg" alt="చాయ్ దుకాణం">
-      <div class="label">హాలహర్వి గ్రామం</div>
-    </div>
-  </div>
-
-  <!-- ---------- MODAL ---------- -->
-  <div class="modal-backdrop" id="modalBackdrop">
-    <div class="modal">
-      <button class="close-btn" id="closeBtn">&times;</button>
-     
-      <div class="m-info">
-        <h2 id="modalTitle"></h2>
-        <p id="modalDesc"></p>
-        <div class="meta" id="modalMeta"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ---------- FOOTER ---------- -->
-  <footer>
-      <div class="footer-container">
-    <div class="footer-section1">
-      <h3>మా గురించి</h3>
-      <p>ఇది మా గ్రామ కుటుంబ బుక్లెట్ వెబ్‌సైట్. గ్రామ చరిత్ర, వ్యక్తులు, ఫోటోలు — అన్నీ ఒకచోట.</p>
-    </div>
-
-    <div class="footer-section2">
-      <h3>ఉపయోగకరమైన లింకులు</h3>
-      <a href="index.html">మొదటి పేజీ</a>
-      <a href="#">సంప్రదించండి</a>
-      <a href="#">ఫోటో గ్యాలరీ</a>
-    </div>
-
-    <div class="footer-section3">
-      <h3>మమ్మల్ని సంప్రదించండి</h3>
-      <p>📍 బోయ నాగరాజు, హాలహర్వి గ్రామం, నందవరం, కర్నూలు జిల్లా</p>
-      <p>📞 81421 93789</p>
-      <p>✉️ info@example.com</p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    © 2025 కుటుంబ బుక్లెట్ | Designed by <b>Boya Nagaraju</b>
-
-      <audio id="bg-audio" preload="auto" loop playsinline>
-    <source src="tdp1.mp3" type="audio/mpeg">
-    మీ బ్రౌజర్ ఆడియో ట్యాగ్ ని సపోర్ట్ చేయదు.
-  </audio>
-<div id="controls" class="audio-controls" aria-hidden="true">
-    
-    
-  </div>
-  <!-- fallback play బటన్ (మొబైల్ కోసం) -->
-  
-
-  </div>
-
-</footer>
-
-  <!-- ---------- SCRIPT ---------- -->
-   <script>
-  (function(){
-    const audio = document.getElementById('bg-audio');
-    const playBtn = document.getElementById('play-btn');
-    const controls = document.getElementById('controls');
-    const pauseBtn = document.getElementById('pause-btn');
-    const muteBtn = document.getElementById('mute-btn');
-
-    // ప్రాథమిక కొంత సెటప్
-    audio.volume = 0.8; // అవసరమైతే సర్దుకోండి (0.0 - 1.0)
-
-    // పేజీ లోడ్ అయ్యగానే ప్లే చేయడానికి ప్రయత్నించు
-    window.addEventListener('DOMContentLoaded', () => {
-      // ప్రయత్నం
-      const p = audio.play();
-      if (p !== undefined) {
-        p.then(() => {
-          // ప్లే అయిపోయింది — UI controls చూపించొచ్చు
-          controls.style.display = 'block';
-          controls.setAttribute('aria-hidden','false');
-        }).catch((err) => {
-          // బ్రౌజర్ autoplay బ్లాక్ చేసింది -> యూజర్ ఇంటరాక్షన్ కోరాలి
-          console.log('Autoplay blocked:', err);
-          showPlayButton();
-          // optional: అటైన సందర్భంలో ఒక టచ్/క్లిక్ వచ్చిన వెంటనే ప్లే ట్రై చేయడం
-          // add a one-time listener to try again on first user gesture
-          const one = () => {
-            audio.play().then(() => {
-              hidePlayButton();
-              controls.style.display = 'block';
-              controls.setAttribute('aria-hidden','false');
-            }).catch(()=> {
-              // ఇంకా బ్లాక్ అయితే tetap show button
-              showPlayButton();
-            });
-            document.removeEventListener('click', one);
-            document.removeEventListener('touchstart', one);
-          };
-          document.addEventListener('click', one, {once: true});
-          document.addEventListener('touchstart', one, {once: true});
-        });
-      } else {
-        // Promise undefined (బిజారక) — ఫాల్బ్యాక్
-        showPlayButton();
-      }
-    });
-
-    function showPlayButton() {
-      playBtn.classList.add('show');
-    }
-    function hidePlayButton() {
-      playBtn.classList.remove('show');
-    }
-
-    // యూజర్ బటన్ తో ప్లే
-    playBtn.addEventListener('click', async () => {
-      try {
-        await audio.play();
-        hidePlayButton();
-        controls.style.display = 'block';
-        controls.setAttribute('aria-hidden','false');
-      } catch (e) {
-        console.warn('Play failed even after user click:', e);
-      }
-    });
-
-    // pause / mute controls
-    pauseBtn.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play();
-        pauseBtn.textContent = '||';
-      } else {
-        audio.pause();
-        pauseBtn.textContent = '▶︎';
-      }
-    });
-
-    muteBtn.addEventListener('click', () => {
-      audio.muted = !audio.muted;
-      muteBtn.textContent = audio.muted ? '🔈' : '🔊';
-    });
-
-    // (ఐచ్ఛిక) పేజీ విడిచేప్పుడు ఆడియో ఆపడం
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        // backgroundలో గానీ, మీరు ఇష్టమైతే pause చేయవచ్చు
-        // audio.pause();
-      } else {
-        // తిరిగి వచ్చినప్పుడు ఆటోప్లే ప్రయత్నాలుంటే...
-      }
-    });
-
-  })();
-</script>
- <script>
-function toggleDropdown(id) {
-  // అన్ని డ్రాప్‌డౌన్‌లను మూసేయండి
-  document.querySelectorAll('.dropdown-content').forEach(drop => {
-    if (drop.id !== id) drop.style.display = 'none';
-  });
-
-  // ప్రస్తుత డ్రాప్‌డౌన్ తెరవడం/మూసేయడం
-  const dropdown = document.getElementById(id);
-  const isOpen = dropdown.style.display === 'block';
-  dropdown.style.display = isOpen ? 'none' : 'block';
-
-  // మౌస్ బయటకు వెళ్ళగానే మూసేయడం
-  if (!isOpen) {
-    // మొదట పాత లిసనర్ తీసేయండి
-    dropdown.onmouseleave = null;
-
-    // మౌస్ బయటకి వెళ్ళిన వెంటనే మూసేయండి
-    dropdown.onmouseleave = () => {
-      dropdown.style.display = 'none';
-    };
-
-    // అలాగే parent <li> పైనుండి మౌస్ బయటికి వెళ్ళినప్పుడు కూడా మూసేయండి
-    const parentLi = dropdown.closest('li');
-    if (parentLi) {
-      parentLi.onmouseleave = () => {
-        dropdown.style.display = 'none';
-      };
-    }
-  }
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
 }
 
-// బయట ఎక్కడైనా క్లిక్ చేసినప్పుడు కూడా మూసేయడం
-window.addEventListener('click', function(event) {
-  if (!event.target.closest('.navbar')) {
-    document.querySelectorAll('.dropdown-content').forEach(drop => drop.style.display = 'none');
-  }
-});
-</script>
-  <script>
-    const gallery = document.getElementById('gallery');
-    const modalBackdrop = document.getElementById('modalBackdrop');
-    const modalImage = document.getElementById('modalImage');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDesc = document.getElementById('modalDesc');
-    const modalMeta = document.getElementById('modalMeta');
-    const closeBtn = document.getElementById('closeBtn');
+.menu-item {
+    position: relative;
+}
 
-    gallery.addEventListener('click', e => {
-      const card = e.target.closest('.card');
-      if (!card) return;
-     /* modalImage.src = card.dataset.img;*/
-      modalTitle.textContent = card.dataset.title;
-      modalDesc.textContent = card.dataset.desc;
-      modalMeta.textContent = card.dataset.meta;
-      modalBackdrop.style.display = 'flex';
+.menu-item button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 18px 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.menu-item button:hover {
+    background: #ff9800;
+    border-radius: 25px;
+    margin: 0;
+}
+
+.dropdown-list {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 220px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+    padding: 10px;
+    z-index: 1000;
+}
+
+.dropdown-list a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 5px;
+}
+
+.dropdown-list a:hover {
+    background: #2193b0;
+    color: white;
+}
+
+/* Gallery */
+
+.slider {
+    width: 90%;
+    height: 400px;
+    margin: 20px auto;
+    overflow: hidden;
+    border: 5px solid transparent;
+    border-radius: 15px;
+    background:
+        linear-gradient(#000, #000) padding-box,
+        linear-gradient(90deg, red, yellow, lime, cyan, blue, magenta) border-box;
+}
+
+.slides {
+    display: flex;
+    width: 500%;
+    animation: slide 20s infinite;
+}
+
+.slides img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    background: #000;
+}
+
+@keyframes slide {
+
+    0%,
+    15% {
+        transform: translateX(0%);
+    }
+
+    20%,
+    35% {
+        transform: translateX(-20%);
+    }
+
+    40%,
+    55% {
+        transform: translateX(-40%);
+    }
+
+    60%,
+    75% {
+        transform: translateX(-60%);
+    }
+
+    80%,
+    100% {
+        transform: translateX(-80%);
+    }
+}
+
+/*gallery*/
+
+.gallery {
+    width: 90%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/*card style*/
+.card {
+    flex: 0 0 2em;
+    margin: 0 auto;
+    padding: 1em;
+    height: 12em;
+    background: #1c1f2b;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.card::after,
+.card::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 10px;
+    background: conic-gradient(from var(--angle),
+            red,
+            yellow,
+            lime,
+            cyan,
+            blue,
+            magenta,
+            red);
+    z-index: -1;
+    /* animation: rotateBorder 3s linear infinite;*/
+}
+
+.card::before {
+    filter: blur(20px);
+    opacity: 0.5;
+}
+
+/*card style*/
+
+.card:hover {
+    transform: translateY(-10px);
+    color: white;
+    /*animation: rotateBorder 3s linear infinite;*/
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card h3 {
+    padding: 15px;
+    color: wheat;
+}
+
+/* Popup */
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fade .3s;
+    border: 3px solid;
+    background:
+        linear-gradient(#000, #000) padding-box,
+        linear-gradient(90deg, red, yellow, lime, cyan, blue, magenta) border-box;
+}
+
+.popup-content {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .5);
+    animation: zoom .3s;
+}
+
+.popup-content img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.popup-content h2 {
+    padding: 15px;
+    margin: 0;
+    color: #222;
+}
+
+.popup-content p {
+    padding: 0 15px 20px;
+    color: #555;
+    line-height: 28px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.close:hover {
+    background: #000;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(.5);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Footer */
+
+footer {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: #222;
+    color: white;
+    padding: 30px;
+}
+
+.footer-box {
+    width: 45%;
+}
+
+.footer-box h2 {
+    margin-bottom: 15px;
+    color: #ff9800;
+}
+
+.footer-box p {
+    line-height: 28px;
+}
+
+@media(max-width:700px) {
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    .footer-box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+}
+
+/*mobile responsive*/
+@media(max-width:700px) {
+
+    .slider {
+        height: 220px;
+    }
+
+    .slides img {
+        height: 220px;
+        border-color: #ff9800;
+        border-radius: 25%;
+    }
+
+}
+
+.news-ticker {
+
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+
+    background: #111;
+
+    border-top: 3px solid yellow;
+    border-bottom: 3px solid yellow;
+
+    overflow: hidden;
+
+    margin: 10px 0;
+}
+
+.news-title {
+
+    background: #d60000;
+
+    color: #fff;
+
+    padding: 15px 20px;
+
+    font-weight: bold;
+
+    font-size: 18px;
+
+    white-space: nowrap;
+}
+
+.news-scroll {
+
+    flex: 1;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+.news-scroll marquee {
+
+    line-height: 50px;
+}
+   </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-box">
+            <img class="header-img" src="sntr.jpg">
+        </div>
+        <div class="header-box">
+            <img class="header-img" src="BVM1.jpg">
+        </div>
+        <div class="header-box">
+            <img class="header-img" src="cbn.jpg" alt="">
+        </div>
+        <div class="header-box">
+            <img class="header-img" src="lokesh.jpg" alt="">
+        </div>
+        <div class="header-box">
+            <img class="header-img" src="Pall.jpeg" alt="">
+        </div>
+        <h1> జై తెలుగుదేశం జై జై తెలుగుదేశం</h1>
+        <div class="header-box">
+            <img class="header-img" src="bvj1.jpg" alt="">
+        </div>
+        <div class="header-box">
+            <img class="header-img" src="cycle.jpg" alt="">
+        </div>
+    </header>
+    <nav>
+        <ul id="menu">
+            <li class="menu-item">
+                <button onclick="showList(this,'ఎమ్మిగనూరు టౌన్')">ఎమ్మిగనూరు టౌన్</button>
+            </li>
+            <li class="menu-item">
+                <button onclick="showList(this,'ఎమ్మిగనూరు రూరల్')">ఎమ్మిగనూరు రూరల్</button>
+            </li>
+            <li class="menu-item">
+                <button onclick="showList(this,'గోనెగండ్ల మండలం')">గోనెగండ్ల మండలం</button>
+            </li>
+            <li class="menu-item">
+                <button onclick="showList(this,'నందవరం మండలం')">నందవరం మండలం</button>
+            </li>
+            <li class="menu-item">
+                <button onclick="showList(this,'సంప్రదించండి')">📞 సంప్రదించండి 📧</button>
+            </li>
+        </ul>
+    </nav>
+    <div class="news-ticker">
+        <span class="news-title">📰 BREAKING NEWS</span>
+
+        <div class="news-scroll">
+            <marquee behavior="scroll" direction="left" scrollamount="10">
+
+                📢 తెలుగుదేశం పార్టీ తాజా వార్తలు |
+                🎉 కొత్త అభివృద్ధి కార్యక్రమాలు ప్రారంభం |
+                🚜 రైతులకు ప్రభుత్వం నుంచి కొత్త పథకాలు |
+                🏛️ ఎమ్మిగనూరు నియోజకవర్గ తాజా సమాచారం |
+                📢 పార్టీ సమావేశం ఆదివారం ఉదయం 10 గంటలకు |
+                తల్లికి వందనం నిధులను ప్రభుత్వము 22.07.2026 తేదీన తల్లుల ఖాతాలో 13,000 రూపాయలు జమ చేయడం జరిగింది.
+
+            </marquee>
+        </div>
+    </div>
+    <div class="slider">
+        <div class="slides">
+            <img src="ha34.jpeg">
+            <img src="ha33.jpeg">
+            <img src="ha38.jpeg">
+            <img src="govindhu4.jpg">
+            <img src="ha19.jpeg">
+        </div>
+    </div>
+    <section class="gallery">
+        <div class="card" onclick="details(0)">
+            <img src="ha19.jpeg">
+            <h3>Nature1</h3>
+        </div>
+        <div class=" card" onclick="details(1)">
+            <img src="ha27.jpeg">
+            <h3>Bird2</h3>
+        </div>
+        <div class="card" onclick="details(2)">
+            <img src="ha26.jpeg">
+            <h3>Mountain3</h3>
+        </div>
+        <div class="card" onclick="details(3)">
+            <img src="ha34.jpeg">
+            <h3>Sea4</h3>
+        </div>
+        <div class="card" onclick="details(4)">
+            <img src="govindhu4.jpg">
+            <h3>Flowers5</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha25.jpeg">
+            <h3>Bird6</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha3.jpg">
+            <h3>Bird7</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha14.jpeg">
+            <h3>Bird8</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha15.jpeg">
+            <h3>Bird9</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha16.jpeg">
+            <h3>Bird10</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha17.jpeg">
+            <h3>Bird11</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha17.jpeg">
+            <h3>Bird12</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="bvcolony.jpg">
+            <h3>Bird13</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha2.jpg">
+            <h3>Bird14</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha20.jpeg">
+            <h3>Bird15</h3>
+        </div>
+        <div class="card" onclick="details(1)">
+            <img src="ha21.jpeg">
+            <h3>Bird16</h3>
+        </div>
+    </section>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <img id="popImg">
+            <h2 id="popTitle"></h2>
+            <p id="popText"></p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-box">
+            <h2>About Website</h2>
+            <p>
+                ఈ వెబ్‌సైట్ HTML, CSS మరియు JavaScript ఉపయోగించి రూపొందించబడింది.
+                ఇది అందమైన Gallery మరియు Navigation Menu ను కలిగి ఉంటుంది.
+            </p>
+        </div>
+        <div class="footer-box">
+            <h2>Contact</h2>
+            <p>
+                📧 Email : nagarajuboya789@gmail.com
+                <br>
+                📞 Phone : +91 8142193789
+                <br>
+                📍 Andhra Pradesh
+            </p>
+        </div>
+    </footer>
+    <script >
+      // ================= MENU DATA =================
+
+const menuData = {
+    "ఎమ్మిగనూరు టౌన్": [
+        { text: "వార్డు 1", url: "http://127.0.0.1:5500/js%20folder/new%20js%2028.06.2026/index.html" },
+        { text: "వార్డు 2", url: "https://website2.com" },
+        { text: "వార్డు 3", url: "https://website3.com" },
+        { text: "వార్డు 4", url: "https://website4.com" },
+        { text: "వార్డు 5", url: "https://website5.com" }
+    ],
+
+    "ఎమ్మిగనూరు రూరల్": [
+        { text: "వార్డు 1", url: "https://speechnotes.co/dictate/" },
+        { text: "వార్డు 2", url: "https://website2.com" },
+        { text: "వార్డు 3", url: "https://website3.com" },
+        { text: "వార్డు 4", url: "https://website4.com" },
+        { text: "వార్డు 5", url: "https://website5.com" }
+    ],
+
+    "గోనెగండ్ల మండలం": [
+        { text: "గ్రామం 1", url: "https://website1.com" },
+        { text: "గ్రామం 2", url: "https://website2.com" },
+        { text: "గ్రామం 3", url: "https://website3.com" },
+        { text: "గ్రామం 4", url: "https://website4.com" },
+        { text: "గ్రామం 5", url: "https://website5.com" }
+    ],
+
+    "నందవరం మండలం": [
+        { text: "గ్రామం 1", url: "https://website1.com" },
+        { text: "గ్రామం 2", url: "https://website2.com" },
+        { text: "గ్రామం 3", url: "https://website3.com" },
+        { text: "గ్రామం 4", url: "https://website4.com" },
+        { text: "గ్రామం 5", url: "https://website5.com" }
+    ],
+
+    "సంప్రదించండి": [
+        { text: "📞 8142193789", url: "#" },
+        { text: "Facebook", url: "https://facebook.com" },
+        { text: "WhatsApp", url: "https://wa.me/918142193789" },
+        { text: "🌐 Website", url: "#" },
+        { text: "🕒 Monday - Saturday", url: "#" }
+    ]
+};
+
+// ================= DROPDOWN =================
+
+function showList(btn, name) {
+
+    document.querySelectorAll(".dropdown-list").forEach(list => list.remove());
+
+    if (!menuData[name]) return;
+
+    let div = document.createElement("div");
+    div.className = "dropdown-list";
+
+    menuData[name].forEach(item => {
+
+        let a = document.createElement("a");
+
+        a.href = item.url;
+        a.target = "_blank";
+        a.innerHTML = item.text;
+
+        div.appendChild(a);
+
     });
 
-    closeBtn.addEventListener('click', () => {
-      modalBackdrop.style.display = 'none';
-    });
+    btn.parentElement.appendChild(div);
 
-    modalBackdrop.addEventListener('click', e => {
-      if (e.target === modalBackdrop) modalBackdrop.style.display = 'none';
-    });
-  </script>
-  <script>
-  const cards = document.querySelectorAll('.card');
+    btn.parentElement.onmouseleave = function () {
 
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      // అన్ని కార్డుల ఇన్ఫో దాచండి
-      document.querySelectorAll('.info-box').forEach(box => box.classList.remove('active'));
+        div.remove();
 
-      // ప్రస్తుత కార్డుకు సంబంధించిన ఇన్ఫో చూపించండి
-      const infoBox = card.querySelector('.info-box');
-      infoBox.innerHTML = `
-        <h3>${card.dataset.title}</h3>
-        <p>${card.dataset.info}</p>
-      `;
-      infoBox.classList.add('active');
-    });
-  });
-</script>
+    };
 
+}
+
+// ================= POPUP DATA =================
+
+const data = [
+
+    {
+        title: "Boya Nagaraju",
+        img: "moksha33.jpg",
+        text: "ఇది మొదటి వివరాలు."
+    },
+
+    {
+        title: "Moksha Lakshmi",
+        img: "bvj1.jpg",
+        text: "ఇది రెండవ వివరాలు."
+    },
+
+    {
+        title: "Shivamurthy",
+        img: "3.jpg",
+        text: "ఇది మూడవ వివరాలు."
+    },
+
+    {
+        title: "Lalitha",
+        img: "4.JPG",
+        text: "ఇది నాల్గవ వివరాలు."
+    },
+
+    {
+        title: "Lakshmi",
+        img: "govindhu4.jpg",
+        text: "ఇది ఐదవ వివరాలు."
+    }
+
+];
+
+// ================= POPUP =================
+
+function details(i) {
+
+    if (!data[i]) return;
+
+    document.getElementById("popup").style.display = "flex";
+
+    document.getElementById("popImg").src = data[i].img;
+
+    document.getElementById("popTitle").innerHTML = data[i].title;
+
+    document.getElementById("popText").innerHTML = data[i].text;
+
+}
+
+function closePopup() {
+
+    document.getElementById("popup").style.display = "none";
+
+}
+
+// Popup బయట క్లిక్ చేస్తే Close
+
+window.onclick = function (e) {
+
+    let popup = document.getElementById("popup");
+
+    if (e.target == popup) {
+
+        popup.style.display = "none";
+
+    }
+
+};
+
+// ================= MOBILE MENU =================
+
+function openMenu() {
+
+    document.getElementById("menu").classList.toggle("active");
+
+}
+    </script>
 </body>
+
 </html>
