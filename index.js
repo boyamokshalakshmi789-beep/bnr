@@ -46,9 +46,11 @@ const menuData = {
 
 function showList(btn, name) {
 
-    document.querySelectorAll(".dropdown-list").forEach(list => list.remove());
+    const old = btn.parentElement.querySelector(".dropdown-list");
 
-    if (!menuData[name]) return;
+    document.querySelectorAll(".dropdown-list").forEach(x => x.remove());
+
+    if (old) return;
 
     let div = document.createElement("div");
     div.className = "dropdown-list";
@@ -58,8 +60,10 @@ function showList(btn, name) {
         let a = document.createElement("a");
 
         a.href = item.url;
+
         a.target = "_blank";
-        a.innerHTML = item.text;
+
+        a.textContent = item.text;
 
         div.appendChild(a);
 
@@ -67,13 +71,19 @@ function showList(btn, name) {
 
     btn.parentElement.appendChild(div);
 
-    btn.parentElement.onmouseleave = function () {
-
-        div.remove();
-
-    };
+    btn.parentElement.onmouseleave = () => div.remove();
 
 }
+
+document.addEventListener("keydown", function (e) {
+
+    if (e.key === "Escape") {
+
+        closePopup();
+
+    }
+
+});
 
 // ================= POPUP DATA =================
 
@@ -107,50 +117,102 @@ const data = [
         title: "Lakshmi",
         img: "govindhu4.jpg",
         text: "ఇది ఐదవ వివరాలు."
+    },
+    {
+        title: "Boya Nagaraju",
+        img: "moksha33.jpg",
+        text: "ఇది మొదటి వివరాలు."
+    },
+    {
+        title: "Boya Nagaraju",
+        img: "moksha33.jpg",
+        text: "ఇది మొదటి వివరాలు."
+    },
+    {
+        title: "Boya Nagaraju",
+        img: "moksha33.jpg",
+        text: "ఇది మొదటి వివరాలు."
+    },
+    {
+        title: "Boya Nagaraju",
+        img: "moksha33.jpg",
+        text: "ఇది మొదటి వివరాలు."
+    },
+    {
+        title: "Boya Nagaraju",
+        img: "moksha33.jpg",
+        text: "ఇది మొదటి వివరాలు."
+    },
+    {
+        title: "Boya Nagaraju",
+        img: "moksha33.jpg",
+        text: "ఇది మొదటి వివరాలు."
+    },
+    {
+        title: "Boya Nagaraju",
+        img: "moksha33.jpg",
+        text: "ఇది మొదటి వివరాలు."
+    },
+    {
+        title: "Boya Nagaraju",
+        img: "moksha33.jpg",
+        text: "ఇది మొదటి వివరాలు."
+    },
+    {
+        title: "Boya Nagaraju",
+        img: "moksha33.jpg",
+        text: "ఇది మొదటి వివరాలు."
+    },
+    {
+        title: "Boya Nagaraju",
+        img: "moksha33.jpg",
+        text: "ఇది మొదటి వివరాలు."
+    },
+    {
+        title: "Boya Nagaraju",
+        img: "moksha33.jpg",
+        text: "ఇది మొదటి వివరాలు."
     }
 
 ];
 
 // ================= POPUP =================
-
 function details(i) {
 
     if (!data[i]) return;
 
-    document.getElementById("popup").style.display = "flex";
+    const popup = document.getElementById("popup");
+
+    popup.style.display = "flex";
+
+    popup.style.opacity = "0";
+
+    setTimeout(() => {
+
+        popup.style.opacity = "1";
+
+    }, 10);
 
     document.getElementById("popImg").src = data[i].img;
 
-    document.getElementById("popTitle").innerHTML = data[i].title;
+    document.getElementById("popTitle").textContent = data[i].title;
 
-    document.getElementById("popText").innerHTML = data[i].text;
-
-}
-
-function closePopup() {
-
-    document.getElementById("popup").style.display = "none";
+    document.getElementById("popText").textContent = data[i].text;
 
 }
-
-// Popup బయట క్లిక్ చేస్తే Close
-
-window.onclick = function (e) {
-
-    let popup = document.getElementById("popup");
-
-    if (e.target == popup) {
-
-        popup.style.display = "none";
-
-    }
-
-};
 
 // ================= MOBILE MENU =================
 
 function openMenu() {
-
-    document.getElementById("menu").classList.toggle("active");
-
+    document.getElementById("menu").classList.toggle("show");
 }
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+window.addEventListener("click", function (e) {
+    const popup = document.getElementById("popup");
+
+    if (e.target === popup) {
+        closePopup();
+    }
+});
