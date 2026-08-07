@@ -23,14 +23,29 @@ const menuData = {
         { text: "గ్రామం 3", url: "https://website3.com" },
         { text: "గ్రామం 4", url: "https://website4.com" },
         { text: "గ్రామం 5", url: "https://website5.com" }
+
     ],
 
     "నందవరం మండలం": [
-        { text: "గ్రామం 1", url: "https://website1.com" },
-        { text: "గ్రామం 2", url: "https://website2.com" },
-        { text: "గ్రామం 3", url: "https://website3.com" },
-        { text: "గ్రామం 4", url: "https://website4.com" },
-        { text: "గ్రామం 5", url: "https://website5.com" }
+        { text: "హాలహర్వి ", url: "https://website1.com" },
+        { text: "ధర్మాపురం", url: "https://website2.com" },
+        { text: "జగ్గాపురం", url: "https://website3.com" },
+        { text: "హెచ్ బాపురం", url: "https://website4.com" },
+        { text: "ముగతి", url: "https://website5.com" },
+        { text: "నందవరం", url: "https://website5.com" },
+        { text: "మాచపురం", url: "https://website5.com" },
+        { text: "పూలచింత", url: "https://website5.com" },
+        { text: "ఇబ్రహీంపురం", url: "https://website5.com" },
+        { text: "నదికైరవాడి", url: "https://website5.com" },
+        { text: "గంగవరం", url: "https://website5.com" },
+        { text: "పెద్దకొత్తిలి", url: "https://website5.com" },
+        { text: "చిన్నకొత్తిలి", url: "https://website5.com" },
+        { text: "నాగలదిన్నె", url: "https://website5.com" },
+        { text: "గురుజాల", url: "https://website5.com" },
+        { text: "మిట్టసోమాపురం", url: "https://website5.com" },
+        { text: "కనకవీడు", url: "https://website5.com" },
+        { text: "పోనకలద్దిన్నె", url: "https://website5.com" },
+        { text: "సోమలగూడురు", url: "https://website5.com" }
     ],
 
     "సంప్రదించండి": [
@@ -90,87 +105,87 @@ document.addEventListener("keydown", function (e) {
 const data = [
 
     {
-        title: "Boya Nagaraju",
-        img: "moksha33.jpg",
-        text: "ఇది మొదటి వివరాలు."
+        title: "ఫోటో 1",
+        img: "ha19.jpeg",
+        text: "హాలహర్వి గ్రామంలో సూపర్ సిక్స్ పథకాలు గురించి ఇంటిటి ప్రచారం"
     },
 
     {
-        title: "Moksha Lakshmi",
-        img: "bvj1.jpg",
+        title: "ఫోటో 2",
+        img: "ha27.jpeg",
         text: "ఇది రెండవ వివరాలు."
     },
 
     {
-        title: "Shivamurthy",
-        img: "3.jpg",
+        title: "ఫోటో 3",
+        img: "ha26.jpeg",
         text: "ఇది మూడవ వివరాలు."
     },
 
     {
-        title: "Lalitha",
-        img: "4.JPG",
+        title: "ఫోటో 4",
+        img: "ha34.jpeg",
         text: "ఇది నాల్గవ వివరాలు."
     },
 
     {
-        title: "Lakshmi",
+        title: "ఫోటో 5",
         img: "govindhu4.jpg",
         text: "ఇది ఐదవ వివరాలు."
     },
     {
-        title: "Boya Nagaraju",
-        img: "moksha33.jpg",
+        title: "ఫోటో 6",
+        img: "moksha25.jpeg",
         text: "ఇది మొదటి వివరాలు."
     },
     {
-        title: "Boya Nagaraju",
-        img: "moksha33.jpg",
+        title: "ఫోటో 7",
+        img: "ha3.jpeg",
         text: "ఇది మొదటి వివరాలు."
     },
     {
-        title: "Boya Nagaraju",
-        img: "moksha33.jpg",
+        title: "ఫోటో 8",
+        img: "ha14.jpeg",
         text: "ఇది మొదటి వివరాలు."
     },
     {
-        title: "Boya Nagaraju",
-        img: "moksha33.jpg",
+        title: "ఫోటో 9",
+        img: "ha15.jpeg",
         text: "ఇది మొదటి వివరాలు."
     },
     {
-        title: "Boya Nagaraju",
-        img: "moksha33.jpg",
+        title: "ఫోటో 10",
+        img: "ha16.jpeg",
         text: "ఇది మొదటి వివరాలు."
     },
     {
-        title: "Boya Nagaraju",
-        img: "moksha33.jpg",
+        title: "ఫోటో 11",
+        img: "ha17.jpeg",
         text: "ఇది మొదటి వివరాలు."
     },
     {
-        title: "Boya Nagaraju",
-        img: "moksha33.jpg",
+        title: "ఫోటో 12",
+        img: "ha17.jpeg",
         text: "ఇది మొదటి వివరాలు."
     },
     {
-        title: "Boya Nagaraju",
-        img: "moksha33.jpg",
+        title: "ఫోటో 13",
+        img: "bvcolony.jpg",
         text: "ఇది మొదటి వివరాలు."
     },
     {
-        title: "Boya Nagaraju",
-        img: "moksha33.jpg",
+        title: "ఫోటో 14",
+        img: "ha2.jpg",
         text: "ఇది మొదటి వివరాలు."
     },
     {
-        title: "Boya Nagaraju",
-        img: "moksha33.jpg",
+        title: "ఫోటో 15",
+        img: "ha20.jpeg",
         text: "ఇది మొదటి వివరాలు."
     },
     {
-        title: "Boya Nagaraju",
-        img: "moksha33.jpg",
+        title: "ఫోటో 16",
+        img: "ha21.jpeg",
         text: "ఇది మొదటి వివరాలు."
     }
 
