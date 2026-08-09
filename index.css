@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #555;
+    background: black;
 }
 
 /* Header */
@@ -46,11 +46,10 @@ header {
     width: 140%;
     height: 140%;
     background: conic-gradient(red,
-            yellow,
-            lime,
+
+            gray,
             cyan,
             blue,
-            magenta,
             red);
     animation: rotateBorder 5s linear infinite;
 }
@@ -91,7 +90,7 @@ nav {
     position: relative;
     top: auto;
     box-shadow: none;
-    background: hsl(17, 90%, 44%);
+    background: black;
 }
 
 nav ul {
@@ -137,10 +136,7 @@ nav ul li {
         background: #0b5ed7;
 
     }
-
 }
-
-
 
 /* List */
 
@@ -207,9 +203,7 @@ nav ul li {
     overflow: hidden;
     border: 5px solid transparent;
     border-radius: 15px;
-    background:
-        linear-gradient(#000, #000) padding-box,
-        linear-gradient(90deg, red, yellow, lime, cyan, blue, magenta) border-box;
+    background: black;
 }
 
 .slides {
@@ -223,6 +217,7 @@ nav ul li {
     height: 400px;
     object-fit: contain;
     background: #000;
+    border-radius: 10%;
 }
 
 @keyframes slide {
@@ -282,27 +277,51 @@ nav ul li {
     inherits: false;
 }
 
-.card::after,
+/* 3. The rotating border using a pseudo-element behind the content */
 .card::before {
     content: "";
     position: absolute;
-    inset: -3px;
-    border-radius: 10px;
-    background: conic-gradient(from var(--angle),
-            red,
-            yellow,
-            lime,
-            cyan,
-            blue,
-            magenta,
-            red);
+    inset: -4px;
+    /* Pulls the border slightly outside the card boundaries */
     z-index: -1;
-    /* animation: rotateBorder 3s linear infinite;*/
+    background: conic-gradient(from var(--angle), transparent, gray, transparent 40%);
+    border-radius: 24px;
+    /* Matches card corner shape */
+    animation: rotate-border 4s linear infinite;
 }
 
-.card::before {
+/* 4. Optional: A glowing background effect using the ::after pseudo-element */
+.card::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    z-index: -2;
+    background: conic-gradient(from var(--angle), transparent, #ff007f, #00f0ff, transparent 40%);
+    border-radius: 24px;
     filter: blur(20px);
-    opacity: 0.5;
+    /* Creates the neon glow */
+    opacity: 0.6;
+    animation: rotate-border 4s linear infinite;
+}
+
+/* 5. The core content container that masks the inside of the card */
+.card-content {
+    width: 100%;
+    height: 100%;
+    background: #1c1c1c;
+    /* Must match the card background to hide the center gradient */
+    border-radius: 18px;
+    /* Slightly smaller than the main card border-radius */
+    padding: 20px;
+    color: white;
+    box-sizing: border-box;
+}
+
+/* 6. Keyframe animation that rotates the angle variable */
+@keyframes rotate-border {
+    to {
+        --angle: 360deg;
+    }
 }
 
 /*card style*/
@@ -310,7 +329,7 @@ nav ul li {
 .card:hover {
     transform: translateY(-10px);
     color: white;
-    /*animation: rotateBorder 3s linear infinite;*/
+    /* animation: rotateBorder 3s linear infinite;*/
 }
 
 .card img {
@@ -343,10 +362,9 @@ nav ul li {
     align-items: center;
     animation: fade .3s;
     border: 3px solid;
-    background:
-        linear-gradient(#000, #000) padding-box,
-        linear-gradient(90deg, red, yellow, lime, cyan, blue, magenta) border-box;
+    background: black;
 }
+
 
 .popup-content {
     position: relative;
@@ -482,8 +500,8 @@ footer {
 
     background: #111;
 
-    border-top: 3px solid yellow;
-    border-bottom: 3px solid yellow;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
 
     overflow: hidden;
 
@@ -494,7 +512,7 @@ footer {
 
     background: #d60000;
 
-    color: #fff;
+    color: white;
 
     padding: 15px 20px;
 
