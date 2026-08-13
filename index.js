@@ -54,6 +54,12 @@ const menuData = {
         { text: "WhatsApp", url: "https://wa.me/918142193789" },
         { text: "🌐 Website", url: "#" },
         { text: "🕒 Monday - Saturday", url: "#" }
+    ],
+    "LOGIN": [
+        { text: "LOGIN", url: "login.html" }
+    ],
+    "UPLOAD": [
+        { text: "UPLOAD", url: "upload.html" }
     ]
 };
 
@@ -140,7 +146,7 @@ const data = [
     },
     {
         title: "ఫోటో 7",
-        img: "ha3.jpeg",
+        img: "ha3.jpg",
         text: "ఇది మొదటి వివరాలు."
     },
     {

@@ -1,52 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="te">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Form</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
+    <title>Photo Upload</title>
 
-        input,
-        button {
-            padding: 10px;
-            margin-top: 10px;
-            width: 100%;
-            font-size: 16px;
-        }
-
-        form {
-            max-width: 350px;
-            margin: auto;
-        }
-    </style>
+    <link rel="stylesheet" href="upload.css">
 </head>
 
 <body>
 
-    <h2>Upload Form</h2>
+    <div class="card">
 
-    <form action="upload.php" method="POST" enctype="multipart/form-data">
+        <h2>Photo Submit</h2>
 
-        <label>Full Name:</label>
-        <input type="text" name="username" required>
+        <form id="uploadForm" enctype="multipart/form-data">
 
-        <label>Mobile Number:</label>
-        <input type="number" name="mobile" required>
+            <input type="file" id="file" name="file" accept=".jpg,.jpeg,.png,.pdf" required>
 
-        <label>Take Photo:</label>
-        <input type="file" name="photo" accept="image/*" capture="camera" required>
+            <div id="preview"></div>
 
-        <button type="submit">Submit</button>
+            <br><br>
 
-    </form>
+            <input type="text" id="title" name="title" placeholder="File వివరాలు" required>
 
+            <br><br>
 
+            <button type="submit" id="uploadBtn">
+                Upload
+            </button>
+
+        </form>
+
+        <div id="message"></div>
+
+    </div>
+
+    <script src="upload.js?v=2"></script>
 
 </body>
 

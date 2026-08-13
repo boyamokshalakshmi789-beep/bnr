@@ -91,6 +91,8 @@ nav {
     top: auto;
     box-shadow: none;
     background: black;
+    border-top: 5px solid gray;
+    border-bottom: 5px solid gray;
 }
 
 nav ul {
@@ -217,7 +219,7 @@ nav ul li {
     height: 400px;
     object-fit: contain;
     background: #000;
-    border-radius: 10%;
+
 }
 
 @keyframes slide {
@@ -341,6 +343,7 @@ nav ul li {
 
 .card:hover img {
     transform: scale(1.05);
+
 }
 
 .card h3 {

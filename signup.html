@@ -1,0 +1,97 @@
+```html
+<!DOCTYPE html>
+<html lang="te">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up Form</title>
+
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+
+    <div class="signup-container">
+
+        <div class="signup-box">
+
+            <h1>Sign Up</h1>
+            <p class="subtitle">Create your account</p>
+
+            <form id="signupForm" action="signup.php" method="POST">
+
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                </div>
+
+                <!-- Mobile Number -->
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" placeholder="Enter 10 digit mobile number"
+                        maxlength="10" inputmode="numeric" required>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                </div>
+
+                <!-- Gender -->
+                <div class="form-group">
+                    <label>Gender</label>
+
+                    <div class="gender-box">
+
+                        <label class="gender-option">
+                            <input type="radio" name="gender" value="Male" required>
+                            <span>Male</span>
+                        </label>
+
+                        <label class="gender-option">
+                            <input type="radio" name="gender" value="Female">
+                            <span>Female</span>
+                        </label>
+
+                    </div>
+                </div>
+
+                <!-- Address -->
+                <div class="form-group">
+                    <label for="address">Address</label>
+
+                    <textarea id="address" name="address" rows="4" placeholder="Enter your address" required></textarea>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="signup-btn">
+                    Sign Up
+                </button>
+
+                <!-- Reset -->
+                <button type="reset" class="reset-btn">
+                    Clear
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="signup.js"></script>
+
+</body>
+
+</html>
+```
